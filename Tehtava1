@@ -8,7 +8,8 @@ Asennus oletus asetuksilla painaen aikalailla Next tai Install kunnes prosessi o
 
 ### Debian lisääminen VirtualBoxiin
 Luodaan uusi VM.
-![Add file: Upload](Screenshot 2023-01-17 210950.png)
+
+![Test](main/Screenshot 2023-01-17 210950.png)
 
 Asetuksista valitaan expert mode ja Skip Unattended Installation.
 Valitaan kansio levylle ja ISO kuva.

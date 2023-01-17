@@ -4,7 +4,9 @@ Asennukset tehtiin omalta Windows 10 pöytäkoneelta 2023.01.17 ~21:15-21:30
 
 ISO image: https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/ (debian-live-11.6.0-amd64-xfce+nonfree.iso)
 
-VirtualBox: https://www.virtualbox.org/wiki/Downloads (Windows hosts/VirtualBox-7.0.4-154605-Win.exe)
+VirtualBox: https://www.virtualbox.org/wiki/Downloads (Windows hosts / VirtualBox-7.0.4-154605-Win.exe)
+
+Tehtävänanto: https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat/#h1-virtuaali-linux
 
 ### VirtualBox asennus 
 Asennus oletus asetuksilla painaen aikalailla Next tai Install kunnes prosessi on ohi.

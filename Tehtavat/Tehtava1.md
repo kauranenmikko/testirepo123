@@ -96,10 +96,42 @@ Ja Debian käynnistyi.
 ## Linuxin päivitys
 Vedin nämä vähän eri järjestyksessä/oman muistin mukaan.
 
-			sudo apt-get update
-			sudo apt-get upgrade
+	sudo apt-get update
+	sudo apt-get upgrade
 			
 ![Screenshot 2023-01-18 000539](https://user-images.githubusercontent.com/122888695/213022714-43232099-122b-499e-bab0-5e0f693ac329.png)
 
+Seuraava komento ei enää löytänyt päivityksiä
+
+	sudo apt-get -y dist-upgrade
+
+![Screenshot 2023-01-18 001002](https://user-images.githubusercontent.com/122888695/213023529-d9a12556-b0ff-4ade-9dbd-962ac761b332.png)
+
+Palomuurin asennus
+
+	sudo apt-get -y install ufw
+	
+![Screenshot 2023-01-18 001243](https://user-images.githubusercontent.com/122888695/213023824-fb648cb7-8de4-454b-a5e8-7e21224b979f.png)
+
+Palomuurin enablointi
+
+	sudo ufw enable
+	
+![Screenshot 2023-01-18 001443](https://user-images.githubusercontent.com/122888695/213024177-ef0764d1-8dea-4f87-a962-20380f21867b.png)
+
+Tämän jälkeen Logout > Restart
+
+## Testaus
+
+Vielä viimeiseksi testi, että kaikki toimii oletetusti.
+
+### Verkko
+Avasin Firefoxin, testasin verkkoa terokarvinen.com
+
+![Screenshot 2023-01-18 001847](https://user-images.githubusercontent.com/122888695/213024856-b72df3df-ab51-4d02-ab56-4efd19cfb7ea.png)
+
+Näppäimistö libre officella
+
+![Screenshot 2023-01-18 002130](https://user-images.githubusercontent.com/122888695/213025249-d8aa658e-5c61-4ba0-93fb-59d1b15b75a3.png)
 
 

@@ -95,8 +95,10 @@ Ja Debian käynnistyi.
 
 ## Linuxin päivitys
 Vedin nämä vähän eri järjestyksessä/oman muistin mukaan.
+
 			sudo apt-get update
 			sudo apt-get upgrade
+			
 ![Screenshot 2023-01-18 000539](https://user-images.githubusercontent.com/122888695/213022714-43232099-122b-499e-bab0-5e0f693ac329.png)
 
 

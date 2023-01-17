@@ -92,3 +92,12 @@ Ja Debian käynnistyi.
 
 ![Screenshot 2023-01-17 213039](https://user-images.githubusercontent.com/122888695/213007639-2c1a4955-c6e6-4db1-a99d-14c7b59c2630.png)
 ![Screenshot 2023-01-17 223950](https://user-images.githubusercontent.com/122888695/213007704-50a63893-3b2f-4741-acb2-013732f14793.png)
+
+## Linuxin päivitys
+Vedin nämä vähän eri järjestyksessä/oman muistin mukaan.
+  sudo apt-get update
+  sudo apt-get upgrade
+![Screenshot 2023-01-18 000539](https://user-images.githubusercontent.com/122888695/213022714-43232099-122b-499e-bab0-5e0f693ac329.png)
+
+
+

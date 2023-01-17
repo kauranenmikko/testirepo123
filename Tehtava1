@@ -1,3 +1,18 @@
-Test
+## Tehtävä 1, Debian VirtualBox asennus
 
-## Test
+ISO image: https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/
+VirtualBox: https://www.virtualbox.org/wiki/Downloads
+
+### VirtualBox asennus 
+Asennus oletus asetuksilla painaen aikalailla Next tai Install kunnes prosessi on ohi.
+
+### Debian lisääminen VirtualBoxiin
+Luodaan uusi VM.
+Asetuksista valitaan expert mode ja Skip Unattended Installation.
+Valitaan kansio levylle ja ISO kuva.
+
+Hardware välilehdeltä lisätään muistia ja ytimiä muutama kun niitä nyt on.
+
+Hard Disk välilehdeltä lisätään levylle kokoa ja valitsin itse Pre-allocate Full Size niin ei tarvitse muistella, että siellä on VM joka voi vielä teoriassa kasvaa.
+
+### Debian käynnistys ja oikea asennus

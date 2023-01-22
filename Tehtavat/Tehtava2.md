@@ -64,7 +64,8 @@ Testattiin lshw output
 
 Tulostuksessa näkyy (virtuaali)koneen käytössä olevat "fyysiset" resurssit. Siitä oletetusti puuttuu aika iso osa oikeata rautaa, esim. GPU, oikeat kiinto/kovalevyasemat, siinä näkyy virtuaalinen verkkokortti, se on tainnut väärin tulkita koneessa kiinni olevan kontrollerin, chipset ja sen piirit puuttuvat, kaikki aika oletettavaa koska kyseessä on virtuaalikone joka, yllättäen, on virtualisoinut lähes kaiken CPUn, muistin, hiiren, näppäimistön ja kovalevytilan ulkopuolella. 
 
-En tiedä mitä tässä kauheasti enempää analysoida. Siinä on koneen osat. Ne ovat periaatteessa oikein, mutta väärin koska virtualisointi on houiitanut käytännössä kaiken /0/100 polun alla olevan.
+En tiedä mitä tässä kauheasti enempää analysoida. Siinä on koneen osat. Ne ovat periaatteessa oikein, mutta väärin koska virtualisointi on hoitanut käytännössä kaiken /0/100 polun alla olevan.
+
 ## Korjasin kellon synkronoinnin
 
 (huom, tämä on vaan jotakin mitä itse huomasin ja lähdin korjaamaan, oletettavasti rikoin jotakin tuossa poistossa kun poistin ntp-paketin suoraan ilman palvelun sammuttamista, ja loppujenlopuksi asensin sitten toisen paketin joka hoitaa saman asian)

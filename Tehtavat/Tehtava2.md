@@ -1,5 +1,7 @@
 ## h2 Komentaja Pingviini
 
+Asennukset tehtiin omalta Windows 10 pöytäkoneelta VirtualBoxissa olevaan Debian 11.6 versioon.
+
 ### Tehtävät
 1. Asennettiin Micro tekstieditori
 2. Asennettiin lshw ja printattiin virtuaalikoneen rauta(hardware)

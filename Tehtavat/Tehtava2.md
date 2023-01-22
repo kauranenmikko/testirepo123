@@ -3,6 +3,9 @@
 Asennukset tehtiin omalta Windows 10 pöytäkoneelta VirtualBoxissa olevaan Debian 11.6 versioon.
 
 
+Tehtävä: https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat/#h2-komentaja-pingviini
+Lähteet: https://terokarvinen.com/2020/command-line-basics-revisited/
+
 Tiivistykset
 - Komentorivi ja tapa suorittaa ohjelmia ja käskyjä on wanha
 - komennot ovat pysyneet samana 

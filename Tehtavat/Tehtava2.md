@@ -286,7 +286,7 @@ Lasketaan user.log rivit käyttäen koneen nimeä titanic, tarkistin rivimäär�
     
 ![grepperino2](https://user-images.githubusercontent.com/122888695/213942819-51489ca6-fab9-4013-a36c-80dc92543a5b.png)
 
-Etsitään boottitiedostoista epäonnistumisten määrää. En ole ihan varma miksi näitäkin tiedostoja on periaatteessa kolme, ja otin muistin käytetyn termin väärin, mutta ei anneta sen häiritä.
+Etsitään boottitiedostoista epäonnistumisten määrää. En ole ihan varma miksi näitäkin tiedostoja on periaatteessa kolme, ja muistin käytetyn termin väärin, mutta ei anneta sen häiritä.
 
     sudo grep -c -i "failure" boot.log.1 boot.log.2
     sudo grep -c -i "failed" boot.log.1 boot.log.2

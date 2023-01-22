@@ -182,7 +182,7 @@ I have no clue what I'm doing.jpg (Minkälainen random generoitu Evoker saa 14 d
 
 ## Käytiin kansioita läpi
 
-Linuxin rootti /
+### Linuxin rootti /
 
 Tästä periaatteessa näkee ylimmän tason puusta, kaikki linuxin tiedostot ovat näitten kansioiden alla tai rootissa itse.
 
@@ -192,3 +192,96 @@ Tästä periaatteessa näkee ylimmän tason puusta, kaikki linuxin tiedostot ova
 ![Troot](https://user-images.githubusercontent.com/122888695/213941560-d8860b7d-f5ba-4729-b9f0-c15adbe676a2.png)
 
 
+### /home/
+
+Käyttäjien "koti" kansio jonka alla on kansiot kaikille käyttäjille. 
+
+    cd /home/
+    ls
+    
+![home](https://user-images.githubusercontent.com/122888695/213941660-0d5c053d-a9c1-47ff-8acd-1196d3617d6c.png)
+
+
+### /home/mikko (./käyttäjä)
+
+Sisältää käyttäjän tiedostot, muistaakseni ainut paikka mihin käyttäjä voi kirjoittaa ilman sudo oikeuksia.
+
+    cd ./mikko (koska oltiin ylemmässä vaiheessa jo /home/ kansiossa, voi käyttää tuota './' korjaamaan sen osion)
+    ls
+    
+![kansio mikko](https://user-images.githubusercontent.com/122888695/213941781-a81aa9ed-aedf-4a8b-ac6d-2d08aed477aa.png)
+
+### /etc
+
+Täällä on linuxin asetukset. Kaikki sisälletyt tiedostot ovat luettavissa tekstimuodossa, esim. nano ohjelmalla. Kansiossa on myös muita kansioita (kuvassa sinisellä).
+
+    cd /etc
+    ls
+    
+![etc](https://user-images.githubusercontent.com/122888695/213941914-13f737b5-1c67-4a09-887f-8b28d3dc7162.png)
+
+Avataan yksi tiedosto kansiosta ihan koska voidaan.
+    
+    nano rc5.d/S01bluetooth
+    Vastaavasti
+    cd rc5.d/
+    ls
+    nano S01bluetooth
+
+![tekstitiedosto](https://user-images.githubusercontent.com/122888695/213942037-26ea4879-5790-4afb-b4a6-e5f3fedb1d68.png)
+
+
+### /media/
+
+Ilmeisesti kansio jossa on irroitettavat asemat/tikut/levyt jne.
+
+Omassa tapauksessa tyhjä.
+
+    cd /media
+    ls
+    pwd
+    cd ./mikko
+    pwd
+    ls
+
+![media](https://user-images.githubusercontent.com/122888695/213942257-c31f3e6f-4b71-4885-b797-0968c9d76eb5.png)
+
+### /var/log
+
+Systeemilogit. Monta logia. Paljon tekstiä.
+
+    cd /var/log
+    ls
+    nano user.log (oikeudet ei riittänyt >:( )
+    sudo nano user.log
+
+![varlog](https://user-images.githubusercontent.com/122888695/213942404-a70f624f-ab60-40f4-8282-0f54aa38fda6.png)
+
+![jep se on tekstia](https://user-images.githubusercontent.com/122888695/213942423-328933d8-3d39-4250-98b5-004781861307.png)
+
+## Grep
+
+Satuttiin olemaan kansiossa, missä on paaaaljon tiedostoja joissa on paljon tekstiä.
+
+Kaivetaan user.log kaikki rivit missä on "denied".
+
+    sudo grep -i "denied" user.log
+    
+![grepperino](https://user-images.githubusercontent.com/122888695/213942714-e84ea13f-2176-4971-8165-18ab8f9b1018.png)
+
+Lasketaan user.log rivit käyttäen koneen nimeä titanic, tarkistin rivimäärän suunilleen avaamalla tiedoston vielä kerran nanolla ja selaamalla.
+
+    sudo grep -c "titanic" user.log
+    
+![grepperino2](https://user-images.githubusercontent.com/122888695/213942819-51489ca6-fab9-4013-a36c-80dc92543a5b.png)
+
+Etsitään boottitiedostoista epäonnistumisten määrää. En ole ihan varma miksi näitäkin tiedostoja on periaatteessa kolme, ja otin muistin käytetyn termin väärin, mutta ei anneta sen häiritä.
+
+    sudo grep -c -i "failure" boot.log.1 boot.log.2
+    sudo grep -c -i "failed" boot.log.1 boot.log.2
+    
+![grepperino3](https://user-images.githubusercontent.com/122888695/213942977-40b4b0f1-79f2-4676-a868-1a48126221a1.png)
+
+Itse aikalailla käyttänyt Greppiä vaan näihin tarkoituksiin, laskemaan tai etsimään tiettyjen termien määrää tiedostoista (pääasiassa kun integraatiolta tulee lähes puoligigaa tekstiä ja pitää katsoa onko uusin muutos aiheuttanut tarvittavan muutoksen datassa, tai onko hakutermit muuttaneet lopputulosta paljonkin)
+
+## Donezo

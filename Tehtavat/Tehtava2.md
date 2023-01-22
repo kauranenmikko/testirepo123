@@ -4,8 +4,9 @@
 1. Asennettiin Micro tekstieditori
 2. Asennettiin lshw ja printattiin virtuaalikoneen rauta(hardware)
 3. Korjattiin kellon syncronointi koska jostakin syystä se puuttui?
-4. Käytiin kansioita läpi
-5. Grep
+4. Asennettiin kolme ohjelmaa, samalla komennolla
+5. Käytiin kansioita läpi
+6. Grep
 
 ## Micro editori
 Etsittiin ja asennettiin Micro. Koska en ollut täysin varma kyseisen ohjelman nimestä, etsin ensin
@@ -95,7 +96,7 @@ Käynnistin palvelun
 
     sudo systemctl restart ntp
     
-Tämän jälkeen ntp-palvelu kyllä käynnistyi, mutta jotakin omituista tapahtui, koska kello ei siltikään synkronoitunut.
+Tämän jälkeen ntp-palvelu kyllä käynnistyi, mutta jotakin omituista tapahtui, koska kello ei siltikään synkronoitunut. (Se ei jostakin syystä osannut lukea tuota NTP palvelun antamaa tietoa? Tai ei ehkä saanut yhteyttä NTP palvelimiin?)
 
 ![image](https://user-images.githubusercontent.com/122888695/213938411-289fac44-a9a9-4a43-a92e-9074ce604caa.png)
 
@@ -117,6 +118,77 @@ Asennuksen jälkeen tarkistin taas asennetun palvelun statuksen ja käynnistin s
     
 ![Time5F](https://user-images.githubusercontent.com/122888695/213938698-b2446cb1-58c1-47f4-a9c5-1f467cff8e6f.png)
 
+Ja tämän jälkeen kello lähti taas toimimaan. Oliko tämä turhaa? Varmaankin. Tulipahan tehtyä.
 
+
+## Asennettiin kolme ohjelmaa
+
+Git, Nethack, cowsay
+
+    sudo apt-get -y install git cowsay nethack-console
+    
+![three installs](https://user-images.githubusercontent.com/122888695/213939594-04aa15cb-c6ac-4fc3-ae22-8485e08c60ed.png)
+
+### Git
+
+Tehdään tyhjä git repo ja lisätään sinne tiedosto, määritetään sitä ennen kuitenkin ihan muutama global variable.
+
+    git config --global user.name "Test User"
+    
+    git config --global user.emaik "Test.User@nodomain.org"
+    
+    git config --global user.email "Test.User@nodomain.org"
+    
+    git config --global user.emaik
+    
+![git1](https://user-images.githubusercontent.com/122888695/213940408-581e6201-1279-46ec-be26-4991c6d005d5.png)
+  
+Noniin ja mitä taas opittiin? Git ottaa kaikki uudet global variablet vastaan, kannattaa lukea mitä kirjoittaa ennen entterin painamista.
+
+Luotiin tyhä repo oletussijaintiin (eli käyttäjän kansioon), lisättiin sinne tiedosto. Tarkistettiin, että tiedosto on seuraavassa commitissa, ja commitattiin muutos. 
+
+Tarkistettiin viimeiseksi, että tuo oikeasti meni vielä läpi ja on nyt mukana repossa.
+
+
+    git init
+    
+    git add /home/mikko/Desktop/test.txt
+    
+    git status
+    
+    git commit
+    
+    git show
+    
+![Git2](https://user-images.githubusercontent.com/122888695/213940485-40fb37c8-391e-4e15-a2cf-73e148700f32.png)
+
+![git3](https://user-images.githubusercontent.com/122888695/213940508-557f1b2e-2e9f-49d8-9102-2022867fef03.png)
+
+![git4](https://user-images.githubusercontent.com/122888695/213940766-701ce1c6-9da5-4c14-a0ad-9e5cc1055d5a.png)
+
+
+### Lehmä sanoo "Mooo"
+
+    cowsay "En sano Moooo"
+
+![cowsays](https://user-images.githubusercontent.com/122888695/213940866-eb4564f2-362d-4bd0-93d2-b07e07ab5c08.png)
+
+
+### Nethack-console
+
+I have no clue what I'm doing.jpg (Minkälainen random generoitu Evoker saa 14 dex?)
+
+![NethackC](https://user-images.githubusercontent.com/122888695/213941297-a8a7d0d4-9033-4a58-9d06-a1ff509d2a37.png)
+
+## Käytiin kansioita läpi
+
+Linuxin rootti /
+
+Tästä periaatteessa näkee ylimmän tason puusta, kaikki linuxin tiedostot ovat näitten kansioiden alla tai rootissa itse.
+
+    cd /
+    ls
+    
+![Troot](https://user-images.githubusercontent.com/122888695/213941560-d8860b7d-f5ba-4729-b9f0-c15adbe676a2.png)
 
 

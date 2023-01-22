@@ -4,6 +4,7 @@ Asennukset tehtiin omalta Windows 10 pöytäkoneelta VirtualBoxissa olevaan Debi
 
 
 Tehtävä: https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat/#h2-komentaja-pingviini
+
 Lähteet: https://terokarvinen.com/2020/command-line-basics-revisited/
 
 Tiivistykset

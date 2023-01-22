@@ -2,6 +2,13 @@
 
 Asennukset tehtiin omalta Windows 10 pöytäkoneelta VirtualBoxissa olevaan Debian 11.6 versioon.
 
+
+Tiivistykset
+- Komentorivi ja tapa suorittaa ohjelmia ja käskyjä on wanha
+- komennot ovat pysyneet samana 
+- komennot ovat kuitenkin aika yksinkertaisia ja järkevästi nimettyjä
+- sudo antaa tehdä käytännössä mitä tahansa
+
 ### Tehtävät
 1. Asennettiin Micro tekstieditori
 2. Asennettiin lshw ja printattiin virtuaalikoneen rauta(hardware)
@@ -11,7 +18,7 @@ Asennukset tehtiin omalta Windows 10 pöytäkoneelta VirtualBoxissa olevaan Debi
 6. Grep
 
 ## Micro editori
-Etsittiin ja asennettiin Micro. Koska en ollut täysin varma kyseisen ohjelman nimestä, etsin ensin
+Etsittiin ja asennettiin Micro. Koska en ollut täysin varma kyseisen paketin nimestä, etsin ensin
   
     apt-cache search micro
 

@@ -62,7 +62,9 @@ Testattiin lshw output
 
 ![lshw output](https://user-images.githubusercontent.com/122888695/213937747-c05d8a46-047d-4b40-9da9-80aac94314b9.png)
 
-Se näytti tulostavan ihan oikein asiat, aika oletetusti tuolla komennolla saatiin vain osien perus tiedot ja virtuaalikoneen takia ei edes näytä GPUta.
+Tulostuksessa näkyy (virtuaali)koneen käytössä olevat "fyysiset" resurssit. Siitä oletetusti puuttuu aika iso osa oikeata rautaa, esim. GPU, oikeat kiinto/kovalevyasemat, siinä näkyy virtuaalinen verkkokortti, se on tainnut väärin tulkita koneessa kiinni olevan kontrollerin, chipset ja sen piirit puuttuvat, kaikki aika oletettavaa koska kyseessä on virtuaalikone joka, yllättäen, on virtualisoinut lähes kaiken CPUn, muistin ja kovalevytilan ulkopuolella. 
+
+En tiedä mitä tässä kauheasti enempää analysoida. Siinä on koneen osat. Ne ovat periaatteessa oikein, mutta väärin koska virtualisointi.
 
 ## Korjasin kellon synkronoinnin
 

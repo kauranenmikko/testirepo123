@@ -35,7 +35,7 @@ Lisenssit ovat vapaita lisenssejä, käytännössä rajoitteet ovat: mainitse te
 
      0. You just DO WHAT THE FUCK YOU WANT TO. 
      
-Harvinaisen selkokielinen.
+Harvinaisen selkokielinen. (Ja varmaankin syy jonka takia se varmaankin on pudotettu osasta paketeista)
 
 Lähde: https://sources.debian.org/copyright/license/cowsay/3.03%2Bdfsg2-8/
 
@@ -76,3 +76,41 @@ Vapaa lisenssi. Käytännössä identtiset ylempien kanssa: saat tehdä käytän
 
 Debian sivuilta lähde: https://sources.debian.org/copyright/license/nethack/3.6.6-2/
     
+## Grepperino v2
+
+Poimitaan tietoa GPL-2 tiedostosta säännöllisillä lauseilla, siellä kun sattuu olemaan sopivan iso määrä tekstiä jo valmiiksi (ja kaikki voivat toistaa teoriassa)
+
+Haetaan kaikki rivit jotka alkavat sanalla "license"
+
+        grep -i "^license" GPL-2
+        
+![3](https://user-images.githubusercontent.com/122888695/214734209-66e6187d-9fc7-414e-b86e-a82c08952329.png)
+
+Kaksi hakua, rivit jotka alkavat merkillä 'l', rivit jotka loppuvat merkkiin 'l' (L)
+
+        grep -i "^\l" GPL-2
+        grep -i "l$" GPL-2
+        
+![4](https://user-images.githubusercontent.com/122888695/214735050-aae713f3-4af6-43a9-96f4-bd97dca9910d.png)
+
+## Putki
+
+Sama tiedosto vielä, kirjoitetaan löytyneet rivit tekstitiedostoon.
+
+        grep -i "^\l" GPL-2 | cat > /home/mikko/Desktop/test.txt
+        
+![5](https://user-images.githubusercontent.com/122888695/214735873-dea47dd3-8ad4-4f98-bdf4-f8b9ad9d56d1.png)
+
+Kai putkilla voi lisää pelleillä.
+
+        grep -i "^\l" GPL-2 | grep -o "license"
+        grep -i "^\l" GPL-2 | grep -o -i "license"
+        grep -i "^\l" GPL-2 | grep -o -i -c "license"
+        grep -i "^\l" GPL-2 | grep -o -i -c "license"  | cowsay
+        grep -i "^\l" GPL-2 | grep -o -i -c "license"  | cowsay | cat > /home/mikko/Desktop/test.txt
+        
+![6](https://user-images.githubusercontent.com/122888695/214736463-c8149917-bf23-4391-8d8c-c5b3788bb75a.png)
+
+Putket hyvin käytetty.
+        
+        

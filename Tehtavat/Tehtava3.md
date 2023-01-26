@@ -24,7 +24,7 @@ Testaukset tehtiin Windows 10 pöytäkoneelta VirtualBoxissa olevaan Debian 11.6
 
 ## Lisenssit
 
-Tarkistetaan kolmen viimeisessä tehtävässä asennetun ohjelman lisenssit. Cowsay, Git, Nethack. Kaivoin lisenssit pääasiassa debianin sivuilta https://sources.debian.org/ (Package search)
+Tarkistetaan kolmen viimeisessä tehtävässä asennetun ohjelman lisenssit. Cowsay, Git, Nethack. Kaivoin lisenssit pääasiassa debianin sivuilta https://packages.debian.org
 
 ### Cowsay
 
@@ -35,8 +35,9 @@ Lisenssejä löytyy muutama.
     GPL-2+
     WTFPL-2
     
+Lähde: https://packages.debian.org/bullseye/cowsay
 
-Lisenssit ovat vapaita lisenssejä, käytännössä rajoitteet ovat: mainitse tekijä jos muokkaat/lainaat koodia, kanna lisenssit mukana (GPL:t), ei takuita jne. Tuo WTFPL-2 linsessi nyt osui silmään kun sitä sai kaivaa vanhemmasta versiosta: https://sources.debian.org/copyright/license/cowsay/3.03%2Bdfsg1-2/ 
+Lisenssit ovat vapaita lisenssejä, käytännössä rajoitteet ovat: mainitse tekijä jos muokkaat/lainaat koodia, kanna lisenssit mukana (GPL:t), ei takuita jne. Kun kaivoin tätä alunperin toiselta sivulta, osui silmään tämmöinen WTFPL-2 linsessi vanhemmasta versiosta:
 
 
                DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
@@ -68,7 +69,7 @@ Ilmeisesti näin yleisesti, nuo menevät kaikki mahtuvat tuon GPL-2 linsessin al
 
 Kyseessä siis on vapaa lisenssi. Lisenssien ainoat oikeat rajoitukset mitä nopeasti lukemalla huomasin, on että kyseiset lisenssit pitää kantaa mukana "niinkuin ne ovat" ilman muokkausta, sinun pitää julkaista lähdekoodi jos jaat sitä vaikka olisit muokannut osia... käytännössä pitää mennä tarkalleen noitten lisenssien rajoitteiden mukana jos/kun jaat ohjelmaa eteenpäin tai muokkaat sitä. Aika samanlaisiahan nuo kaikki ovat.
 
-Lähde: https://sources.debian.org/copyright/license/git/1:2.30.2-1/
+Lähde: https://packages.debian.org/bullseye/git / https://metadata.ftp-master.debian.org/changelogs//main/g/git/git_2.30.2-1_copyright
 
 ### Nethack
 
@@ -83,7 +84,7 @@ Nämä löytyivät usr/share/doc/nethack-common/copyright.txt tiedostosta, ja va
 
 Vapaa lisenssi. Käytännössä identtiset ylempien kanssa: saat tehdä käytännössä mitä haluat kunhan kannat linsessit mukana ja seuraat niitä, joka on käytännössä isoin etu ja rajoite. 
 
-Debian sivuilta lähde: https://sources.debian.org/copyright/license/nethack/3.6.6-2/
+Debian sivuilta lähde: https://packages.debian.org/bullseye/nethack-common / https://metadata.ftp-master.debian.org/changelogs//main/n/nethack/nethack_3.6.6-2_copyright
     
 ## Grepperino v2
 
@@ -131,12 +132,18 @@ http://lib.tkk.fi/Diss/2005/isbn9529187793/isbn9529187793.pdf
 
 https://www.gnu.org/philosophy/free-sw.html
 
+https://packages.debian.org/bullseye/cowsay
+
+https://metadata.ftp-master.debian.org/changelogs//main/c/cowsay/cowsay_3.03+dfsg2-8_copyright
+
+https://packages.debian.org/bullseye/git 
+
+https://metadata.ftp-master.debian.org/changelogs//main/g/git/git_2.30.2-1_copyright
+
+https://packages.debian.org/bullseye/nethack-common 
+
+https://metadata.ftp-master.debian.org/changelogs//main/n/nethack/nethack_3.6.6-2_copyright
+
 https://sources.debian.org/
 
-https://sources.debian.org/copyright/license/cowsay/3.03%2Bdfsg1-2/       
-
 https://sources.debian.org/copyright/license/cowsay/3.03%2Bdfsg2-8/
-
-https://sources.debian.org/copyright/license/git/1:2.30.2-1/
-
-https://sources.debian.org/copyright/license/nethack/3.6.6-2/

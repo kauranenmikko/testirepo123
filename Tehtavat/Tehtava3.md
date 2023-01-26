@@ -111,7 +111,7 @@ Sama tiedosto vielä, kirjoitetaan löytyneet rivit tekstitiedostoon.
         
 ![5](https://user-images.githubusercontent.com/122888695/214735873-dea47dd3-8ad4-4f98-bdf4-f8b9ad9d56d1.png)
 
-Kai putkilla voi lisää pelleillä.
+Kai putkilla voi lisää putkeilla.
 
         grep -i "^\l" GPL-2 | grep -o "license"
         grep -i "^\l" GPL-2 | grep -o -i "license"

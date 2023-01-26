@@ -1,5 +1,6 @@
 ## h3 Vapaus!
 
+Testaukset tehtiin Windows 10 pöytäkoneelta VirtualBoxissa olevaan Debian 11.6 versioon.
 
 ## Tiivistykset
 ### FSF
@@ -125,9 +126,15 @@ Putket hyvin käytetty.
 ## Lähteet
 
 https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat/
+
 http://lib.tkk.fi/Diss/2005/isbn9529187793/isbn9529187793.pdf
+
 https://www.gnu.org/philosophy/free-sw.html
-https://sources.debian.org/copyright/license/cowsay/3.03%2Bdfsg1-2/         
+
+https://sources.debian.org/copyright/license/cowsay/3.03%2Bdfsg1-2/       
+
 https://sources.debian.org/copyright/license/cowsay/3.03%2Bdfsg2-8/
+
 https://sources.debian.org/copyright/license/git/1:2.30.2-1/
+
 https://sources.debian.org/copyright/license/nethack/3.6.6-2/

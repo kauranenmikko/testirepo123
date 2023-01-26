@@ -63,9 +63,9 @@ Noniin tästä saatiinkin oikeen hyvä lisenssisoppa aikaiseksi. Git pakettiin k
     Boost
     dlmalloc
     
-Ilmeisesti näin yleisesti, nuo menevät kaikki mahtuvat tuon GPL-2 linsessin alle, mutta kaikki näistä pitää kuitenkin mukana pitää. 
+Ilmeisesti näin yleisesti, nuo kaikki mahtuvat tuon GPL-2 linsessin alle. 
 
-Kyseessä siis on vapaa lisenssi. Lisenssien ainoat oikeat rajoitukset mitä nopeasti lukemalla huomasin, on että kyseiset lisenssit pitää kantaa mukana "niinkuin ne ovat" ilman muokkausta, sinun pitää julkaista lähdekoodi jos jaat sitä vaikka olisit muokannut osia... käytännössä pitää mennä tarkalleen noitten lisenssien rajoitteiden mukana jos/kun jaat ohjelmaa eteenpäin tai muokkaat sitä. Aika samanlaisiahan nuo kaikki ovat.
+Kyseessä siis on vapaa lisenssi. Lisenssien ainoat oikeat rajoitukset mitä nopeasti lukemalla huomasin, on että kyseiset lisenssit pitää kantaa mukana "niinkuin ne ovat" ilman muokkausta, sinun pitää julkaista lähdekoodi jos jaat sitä vaikka olisit muokannut osia... aika perus GPL lisenssin mallin mukana menee: Muilla pitää olla samat oikeudet, mitkä sinulla on kun otit sait koodin.
 
 Lähde: https://packages.debian.org/bullseye/git / https://metadata.ftp-master.debian.org/changelogs//main/g/git/git_2.30.2-1_copyright
 
@@ -86,7 +86,7 @@ Debian sivuilta lähde: https://packages.debian.org/bullseye/nethack-common / ht
     
 ## Grepperino v2
 
-Poimitaan tietoa GPL-2 tiedostosta säännöllisillä lauseilla, siellä kun sattuu olemaan sopivan iso määrä tekstiä jo valmiiksi (ja kaikki voivat toistaa teoriassa)
+Poimitaan tietoa GPL-2 tiedostosta säännöllisillä lauseilla, siellä kun sattuu olemaan sopivan iso määrä tekstiä jo valmiiksi. Tiedosto löytyy Debian asennuksista /usr/share/common-licenses/.
 
 Haetaan kaikki rivit jotka alkavat sanalla "license"
 

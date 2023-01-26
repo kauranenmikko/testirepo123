@@ -24,7 +24,7 @@ Testaukset tehtiin Windows 10 pöytäkoneelta VirtualBoxissa olevaan Debian 11.6
 
 ## Lisenssit
 
-Tarkistetaan kolmen viimeisessä tehtävässä asennetun ohjelman lisenssit. Cowsay, Git, Nethack.
+Tarkistetaan kolmen viimeisessä tehtävässä asennetun ohjelman lisenssit. Cowsay, Git, Nethack. Kaivoin lisenssit pääasiassa debianin sivuilta https://sources.debian.org/ (Package search)
 
 ### Cowsay
 
@@ -79,7 +79,7 @@ Nethack paketti pitää sisällään seuraavat lisenssit
     NTP
     NTP-Winconsin-Madison
     
-Nämä löytyivät usr/share/doc/nethack-common/copyright.txt tiedosta, ja varmistin ne vielä debianin sivulta. 
+Nämä löytyivät usr/share/doc/nethack-common/copyright.txt tiedostosta, ja varmistin ne vielä debianin sivulta. 
 
 Vapaa lisenssi. Käytännössä identtiset ylempien kanssa: saat tehdä käytännössä mitä haluat kunhan kannat linsessit mukana ja seuraat niitä, joka on käytännössä isoin etu ja rajoite. 
 
@@ -130,6 +130,8 @@ https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat/
 http://lib.tkk.fi/Diss/2005/isbn9529187793/isbn9529187793.pdf
 
 https://www.gnu.org/philosophy/free-sw.html
+
+https://sources.debian.org/
 
 https://sources.debian.org/copyright/license/cowsay/3.03%2Bdfsg1-2/       
 

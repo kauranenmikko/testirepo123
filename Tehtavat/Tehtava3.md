@@ -1,16 +1,5 @@
+## h3 Vapaus!
 
-    x) Lue ja tiivistä (Muutama ranskalainen viiva riittää. Tässä alakohdassa ei tarvitse tehdä testejä tietokoneella)
-        FSF: FSF Free Software Definition
-        Välimäki 2005: Rise of Open Source: 5 Open Source Licenses as Alternative Governance Mechanisms: 5.1.1 - 5.1.4 (sivu 113 - 121)
-    a) Kolmen ohjelman lisenssit. Tarkastele kolmen edellisessä harjoituksessa asentamasi ohjelman lisenssejä. Selvitä kustakin ohjelmasta:
-        Mitä lisenssiä kyseinen ohjelma käyttää?
-        Mistä päättelit lisenssin?
-        Onko kyseessä vapaa lisenssi?
-        Mitkä ovat tämän lisenssin tärkeimmät oikeusvaikutukset?
-        Jääkö tämän ohjelman lisenssoinnista jotain avoimia kysymyksiä tai epäselvyyttä? (kirjaan tämän itselleni muistiin, jos selvitän jonkun ohjelman lisenssejä)
-    b) Säännöllistä. Poimi tekstitiedostosta tietoa grep-komennolla käyttäen säännöllisiä lausekkeita (regexp, regular expressions).
-    c) Pipe. Näytä esimerkki putkista (pipes).
-    d) Vapaaehtoinen: Regex Crossword, tutorial.
 
 ## Tiivistykset
 ### FSF
@@ -26,7 +15,11 @@
 - Lisenssit voi kategorioida kahteen eri ryhmään
     - Standard reciprocity obligation: Lisenssiä ei voi muuttaa ellei koodia yhdistetä toiseen ja näitten yhdistelmästä tule täysin uusi ohjelma, silloin uuden ohjelman ei ole pakollista seurata alkuperäisen lisenssöitiä.
     - Strong reciprocity obligation: Lisenssiä ei voi muuttaa.
-- 
+- Historiallisesti eri lisenssityypit pystytään kategorioida neljään eri lisenssikategoriaa.
+    - GNU lisenssit
+    - Akademia/Tutkimus lisenssit
+    - Yhteisö lisenssit
+    - Yritysten lisenssit
 
 ## Lisenssit
 
@@ -127,5 +120,14 @@ Kai putkilla voi lisää pelleillä.
 ![6](https://user-images.githubusercontent.com/122888695/214736463-c8149917-bf23-4391-8d8c-c5b3788bb75a.png)
 
 Putket hyvin käytetty.
-        
-        
+
+
+## Lähteet
+
+https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat/
+http://lib.tkk.fi/Diss/2005/isbn9529187793/isbn9529187793.pdf
+https://www.gnu.org/philosophy/free-sw.html
+https://sources.debian.org/copyright/license/cowsay/3.03%2Bdfsg1-2/         
+https://sources.debian.org/copyright/license/cowsay/3.03%2Bdfsg2-8/
+https://sources.debian.org/copyright/license/git/1:2.30.2-1/
+https://sources.debian.org/copyright/license/nethack/3.6.6-2/

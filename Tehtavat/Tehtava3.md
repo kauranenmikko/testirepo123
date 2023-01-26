@@ -19,8 +19,13 @@
 - Saat tehdä ohjelmalla mitä haluat
 - Annat muille samat oikeudet kun mitkä sinulla on jos muokkaat ja/tai myyt ohjelmaa eteenpäin joka on julkaistu vapaan lisenssin alla.
 
-### Välimäki 2005 Rise of Open Source
+### Välimäki (2005), Rise of Open Source
 
+- Idea avoimen lähteen takana on kääntää kaikki normaalit tekijänoikeuden "yksinoikudet" ympäri kaikkien oikeuksiksi.
+- Ei aseta vaatimuksia tavaramerkeille, takuulle, yhteensopivuudelle tai lainmukaisuudelle maailmanlaajuisesti(as in: ei ole välttämättä laillisesti pitävä kaikissa maissa)
+- Lisenssit voi kategorioida kahteen eri ryhmään
+    - Standard reciprocity obligation: Lisenssiä ei voi muuttaa ellei koodia yhdistetä toiseen ja näitten yhdistelmästä tule täysin uusi ohjelma, silloin uuden ohjelman ei ole pakollista seurata alkuperäisen lisenssöitiä.
+    - Strong reciprocity obligation: Lisenssiä ei voi muuttaa.
 - 
 
 ## Lisenssit

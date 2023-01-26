@@ -123,6 +123,11 @@ Kai putkilla voi lisää pelleillä.
 
 Putket hyvin käytetty.
 
+Bonus: Mitä käy jos syötät lehmälle lehmän?
+
+![7](https://user-images.githubusercontent.com/122888695/214748645-65135e31-08a2-4319-99c1-eff412f084c3.png)
+
+
 
 ## Lähteet
 

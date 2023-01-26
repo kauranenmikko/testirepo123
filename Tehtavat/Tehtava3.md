@@ -12,6 +12,16 @@
     c) Pipe. Näytä esimerkki putkista (pipes).
     d) Vapaaehtoinen: Regex Crossword, tutorial.
 
+## Tiivistykset
+### FSF
+
+- Ei ilmainen, vapaa (no suomenkielessä ei ole kauhean epäselvä, toisin kun "Free, not _Free_")
+- Saat tehdä ohjelmalla mitä haluat
+- Annat muille samat oikeudet kun mitkä sinulla on jos muokkaat ja/tai myyt ohjelmaa eteenpäin joka on julkaistu vapaan lisenssin alla.
+
+### Välimäki 2005 Rise of Open Source
+
+- 
 
 ## Lisenssit
 

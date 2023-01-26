@@ -35,9 +35,9 @@ Lisenssejä löytyy muutama.
     GPL-2+
     WTFPL-2
     
-Lähde: https://packages.debian.org/bullseye/cowsay
+Lähde: https://packages.debian.org/bullseye/cowsay / https://metadata.ftp-master.debian.org/changelogs//main/c/cowsay/cowsay_3.03+dfsg2-8_copyright
 
-Lisenssit ovat vapaita lisenssejä, käytännössä rajoitteet ovat: mainitse tekijä jos muokkaat/lainaat koodia, kanna lisenssit mukana (GPL:t), ei takuita jne. Kun kaivoin tätä alunperin toiselta sivulta, osui silmään tämmöinen WTFPL-2 linsessi vanhemmasta versiosta:
+Lisenssit ovat vapaita lisenssejä, käytännössä rajoitteet ovat: mainitse tekijä jos muokkaat/lainaat koodia, kanna lisenssit mukana (GPL:t), ei takuita jne. Tuo WTFPL-2 lisenssi on kyllä omaa luokkaansa.
 
 
                DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
@@ -45,9 +45,7 @@ Lisenssit ovat vapaita lisenssejä, käytännössä rajoitteet ovat: mainitse te
 
      0. You just DO WHAT THE FUCK YOU WANT TO. 
      
-Harvinaisen selkokielinen. (Ja varmaankin syy jonka takia se varmaankin on pudotettu osasta paketeista)
-
-Lähde: https://sources.debian.org/copyright/license/cowsay/3.03%2Bdfsg2-8/
+Harvinaisen selkokielinen. 
 
 ### Git
 

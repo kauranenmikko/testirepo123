@@ -1,4 +1,4 @@
-test123
+Testaukset tehtiin Windows 10 pöytäkoneelta VirtualBoxissa olevaan Debian 11.6 versioon.
 
 ## Tukki
 
@@ -37,7 +37,7 @@ Näyttäisi harvinaisen tyhjältä, tietenkin osin sen takia, että en ole oikea
 
 Huvittavasti kyllä, en ole täysin varma mitä tämä rivi tarkalleen tekee nimellisessä virhe logissa, koska sen edellä ei ole mitään ja tuon "mpm_event: notice" voisi olettaa, että kyseessä on vain ilmoitus eikä suoraan virhe. 
 
-Rivi selitettynä: Kellonaika (sekin näyttäisi taas käyttävän järjestelmän aikaa), virheen muoto (tässä tapauksessa ilmoitus), prosessin ID ja threadin ID, AH00489 taitaa olla vaan joku apachen oma virhekoodi asialle, virheen teksti itsessään (tässä tapauksessa vaan apachen käynnistyksestä)
+Rivi analysoituna: Kellonaika (sekin näyttäisi taas käyttävän järjestelmän aikaa), virheen muoto (tässä tapauksessa ilmoitus), prosessin ID ja threadin ID, AH00489 taitaa olla vaan joku apachen oma virhekoodi asialle, virheen teksti itsessään, tässä tapauksessa vaan apachen käynnistyksestä.
 
 ### Aiheutetaan logiin tapahtumia
 

@@ -1,5 +1,11 @@
 Testaukset tehtiin Windows 10 pöytäkoneelta VirtualBoxissa olevaan Debian 11.6 versioon.
 
+
+## Tiivistys
+
+Puuttuu :(
+
+
 ## Tukki
 
 Logien läpikäyntiä.
@@ -46,7 +52,7 @@ Käytetään sudoa, annetaan tahallaan väärä salasana kolmesti, tarkistetaan 
     Jan 30 13:17:37 titanic sudo: pam_unix(sudo:auth): authentication failure; logname= uid=1000 euid=0 tty=/dev/pts/1 ruser=mikko rhost=  user=mikko
     Jan 30 13:17:44 titanic sudo:    mikko : 3 incorrect password attempts ; TTY=pts/1 ; PWD=/home/mikko ; USER=root ; COMMAND=/usr/bin/apt-get update
 
-Ensimmäinen rivi: 
+#### Ensimmäinen rivi: 
 
 Jan 30 13:17:37 - Päivä ja kellonaika
 
@@ -72,7 +78,7 @@ user=mikko - käyttäjän nimi
 
 
 
-Toinen rivi:
+#### Toinen rivi:
 
 Jan 30 13:17:44 - Päivä ja kellonaika
 
@@ -91,3 +97,50 @@ PWD=/home/mikko - missä työkansiossa/polussa oltiin
 USER=root - mitä käyttäjää koitettiin käyttää
 
 COMMAND=/usr/bin/apt-get update - mikä komento annettiin.
+
+
+
+### Onnistunut rivi 
+
+Avataan auth.log, annetaan oikea sudo salasana.
+
+       Jan 30 13:18:08 titanic sudo:    mikko : TTY=pts/0 ; PWD=/var/log ; USER=root ; COMMAND=/usr/bin/micro auth.log
+       Jan 30 13:18:08 titanic sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+       
+#### Ensimmäinen rivi: 
+
+Jan 30 13:18:08 - Päivä ja kellonaika
+
+titanic - koneen nimi
+
+sudo: - ilmoituksen antaneen palikan nimi (sudo)
+
+Sen jälkeen rivi eroaa ensimmäisestä ja onkin vain käyttäjän nimi yksinään.
+
+3 incorrect password attempts - aika selkokielinen virheilmoitus seuraa, salasana annettu väärin kolmesti.
+
+TTY=pts/1 - uorittaneen ohjelman nimi (terminaali)
+
+PWD=/var/log - missä työkansiossa/polussa oltiin
+
+USER=root - mitä käyttäjää koitettiin käyttää
+
+COMMAND=/usr/bin/micro auth.log - mikä komento annettiin.
+
+
+#### Toinen rivi:
+
+Jan 30 13:18:08 - Päivä ja kellonaika
+
+titanic - koneen nimi
+
+sudo: pam_unix(sudo:session): -  ilmoituksen palikka, sudo authentikaatio
+
+session opened for - aika selkokielistä, avattiin sessio
+
+user root(uid=0) -  kennelle avattiin sessio, käyttäjä root
+
+by (uid=1000) - kuka avasi session, tässä tapauksessa minä.
+
+Olisin melkein olettanut, että tässä olisi ollut myös käyttäjän tunnuksen nimi eikä vain tuota viittausta UID=1000, mutta se tietenkin näkyy ylemmässä rivissä.
+

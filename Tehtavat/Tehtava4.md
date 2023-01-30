@@ -71,22 +71,23 @@ rhost=, rhost varmaankin sama kuin ylempi mutta oletettavasti siinä olisi konee
 
 user=mikko, käyttäjän nimi
 
+
 Toinen rivi:
 
-Jan 30 13:17:44, Päivä ja kellonaika
+Jan 30 13:17:44 - Päivä ja kellonaika
 
-titanic, koneen nimi
+titanic - koneen nimi
 
-sudo:, virheen antaneen palikan nimi (sudo)
+sudo: - virheen antaneen palikan nimi (sudo)
 
-Sen jälkeen rivi eroaa ensimmäisestä, ja onkin vain käyttäjän nimi yksinään.
+Sen jälkeen rivi eroaa ensimmäisestä ja onkin vain käyttäjän nimi yksinään.
 
-3 incorrect password attempts, aika selkokielinen virheilmoitus seuraa, salasana annettu väärin kolmesti.
+3 incorrect password attempts - aika selkokielinen virheilmoitus seuraa, salasana annettu väärin kolmesti.
 
-TTY=pts/1, uorittaneen ohjelman nimi (terminaali)
+TTY=pts/1 - uorittaneen ohjelman nimi (terminaali)
 
-PWD=/home/mikko, missä työkansiossa/polussa oltiin
+PWD=/home/mikko - missä työkansiossa/polussa oltiin
 
-USER=root, mitä käyttäjää koitettiin käyttää
+USER=root - mitä käyttäjää koitettiin käyttää
 
-COMMAND=/usr/bin/apt-get update, mikä komento annettiin.
+COMMAND=/usr/bin/apt-get update - mikä komento annettiin.

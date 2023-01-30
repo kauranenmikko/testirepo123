@@ -48,28 +48,28 @@ Käytetään sudoa, annetaan tahallaan väärä salasana kolmesti, tarkistetaan 
 
 Ensimmäinen rivi: 
 
-Jan 30 13:17:37, Päivä ja kellonaika
+Jan 30 13:17:37 - Päivä ja kellonaika
 
-titanic, koneen nimi
+titanic - koneen nimi
 
-sudo: pam_unix(sudo:auth), virheen antaneen palikan nimi (sudo), sen moduuli pam_unix
+sudo: pam_unix(sudo:auth) - virheen antaneen palikan nimi (sudo), sen moduuli pam_unix
 
-authentication failure;, ilmoitus mitä tapahtui (authentikaatio epäonnistui)
+authentication failure; - ilmoitus mitä tapahtui (authentikaatio epäonnistui)
 
-logname=, tässä varmaankin näkyisi erikseen logitiedoston nimi jos olisi määritelty mihin nämä kirjoitetaan.
+logname= - tässä varmaankin näkyisi erikseen logitiedoston nimi jos olisi määritelty mihin nämä kirjoitetaan.
 
+uid=1000 - käyttäjä ID (1000)
 
-uid=1000, käyttäjä ID (1000)
+euid=0 - euid on ilmeisesti käyttäjän "effektiivinen" ID (eli varmaankin 0 koska ensimmäinen käyttäjä laitteella)
 
-euid=0, euid on ilmeisesti käyttäjän "effektiivinen" ID (eli varmaankin 0 koska ensimmäinen käyttäjä laitteella)
+tty=/dev/pts/1 - tty taitaa olla vaan nimi terminaalille, eli varmaankin viittaa ohjelmaan joka on "lähde" tälle tapahtumalle?
 
-tty=/dev/pts/1, tty taitaa olla vaan nimi terminaalille, eli varmaankin viittaa ohjelmaan joka on "lähde" tälle tapahtumalle?
+ruser=mikko - ruser ilmeisesti uudelleen ilmoittaa koneella olevan käyttäjän
 
-ruser=mikko, ruser ilmeisesti uudelleen ilmoittaa koneella olevan käyttäjän
+rhost= - rhost varmaankin sama kuin ylempi mutta oletettavasti siinä olisi koneen/palvelimen nimi esim, jos koittaisi suorittaa komentoa SSHn yli
 
-rhost=, rhost varmaankin sama kuin ylempi mutta oletettavasti siinä olisi koneen/palvelimen nimi esim, jos koittaisi suorittaa komentoa SSHn yli
+user=mikko - käyttäjän nimi
 
-user=mikko, käyttäjän nimi
 
 
 Toinen rivi:

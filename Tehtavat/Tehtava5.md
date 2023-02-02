@@ -21,7 +21,7 @@ Vähän vanhempi jakso. Katsotaan mitä jäi päähän kuuntelun jälkeen.
 
 ![image](https://user-images.githubusercontent.com/122888695/216299669-934a6e10-2e27-4ac6-8b98-cc14877edc82.png)
 
-Unohdin, että tuon tiedoston muokkaaminen vaatii sudoa, mutta muuten menin avaaman /var/www/html/index.html tiedoston ja korvasin sen sisällön toisella kursilla tehdyllä verkkosivulla.
+Unohdin, että tuon tiedoston muokkaaminen vaatii sudoa, mutta menin avaaman /var/www/html/index.html tiedoston ja korvasin sen sisällön toisella kursilla tehdyllä verkkosivulla.
 
 Selaimesta kuva.
 

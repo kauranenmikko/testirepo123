@@ -13,6 +13,14 @@ Käytän toisella kurssilla tehtyä koodia.
 
 ![image](https://user-images.githubusercontent.com/122888695/216299669-934a6e10-2e27-4ac6-8b98-cc14877edc82.png)
 
+Unohdin, että tuon tiedoston muokkaaminen vaatii sudoa, mutta muuten menin avaaman /var/www/html/index.html tiedoston ja korvasin sen sisällön.
+
+Selaimesta kuva.
+
+![image](https://user-images.githubusercontent.com/122888695/216299962-a5bfe246-03f9-4d38-9dc4-52ed464952bf.png)
+
+En lähde nyt tuomaan noita .css tiedosotoja tai kuvia tänne, toimiipahan.
+
 
 ## Toisen käyttäjän kotisivut
 

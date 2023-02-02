@@ -9,11 +9,9 @@ test123
 
 ## Vaihdetaan Apachen esimerkkisivu
 
-Käytän toisella kurssilla tehtyä koodia.
-
 ![image](https://user-images.githubusercontent.com/122888695/216299669-934a6e10-2e27-4ac6-8b98-cc14877edc82.png)
 
-Unohdin, että tuon tiedoston muokkaaminen vaatii sudoa, mutta muuten menin avaaman /var/www/html/index.html tiedoston ja korvasin sen sisällön.
+Unohdin, että tuon tiedoston muokkaaminen vaatii sudoa, mutta muuten menin avaaman /var/www/html/index.html tiedoston ja korvasin sen sisällön toisella kursilla tehdyllä verkkosivulla.
 
 Selaimesta kuva.
 
@@ -45,4 +43,12 @@ Eli aika yksinkertainen prosessi, sudoa joutuu käyttää tai ei ole kirjoitusoi
     401  curl http://localhost/~mikkote2
     402  curl http://localhost/~mikkote2/
 
+Muita käyttäjiä
 
+![image](https://user-images.githubusercontent.com/122888695/216305575-0ee598d1-e96c-442e-915e-7c1dcc7f3797.png)
+
+## Validi HTML sivu
+
+![image](https://user-images.githubusercontent.com/122888695/216304275-535bdd6c-95f1-46b6-a04b-e99b89bc8fa8.png)
+
+Valid enough.

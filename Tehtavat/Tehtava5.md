@@ -7,6 +7,18 @@ test123
     c) Tee uusi käyttäjä. Kirjaudu ulos omastasi ja sisään uutena käyttäjänä. Tee uudellekin käyttäjälle kotisivu.
     d) Tee validi HTML5 sivu.
 
+## Tiivistys
+
+[https://share.transistor.fm/s/afa07210](https://www.indiehackers.com/podcast/205-new-biz-ideas) -  "New Business Ideas for 2021"
+
+Vähän vanhempi jakso. Katsotaan mitä jäi päähän kuuntelun jälkeen.
+
+- BlockChainille ei vieläkään ole keksitty mitään oikeata järkevää käyttötarkoitusta.
+- Scammereitä/erilaisia projekteja tuli ja meni vauhdilla.
+- Loputon seurattava internethistoria kaikesta mitä olet tehnyt joka on julkista ei välttämättä ole se mitä haluat.
+- NTF olivat jo tällöin täysin turhia.
+- Jos sinulla on rahaa, on parempi rakentaa itse palvelu kuin sijoittaa toisen palveluun.
+
 ## Vaihdetaan Apachen esimerkkisivu
 
 ![image](https://user-images.githubusercontent.com/122888695/216299669-934a6e10-2e27-4ac6-8b98-cc14877edc82.png)

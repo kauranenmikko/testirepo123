@@ -27,7 +27,7 @@ Selaimesta kuva.
 
 ![image](https://user-images.githubusercontent.com/122888695/216299962-a5bfe246-03f9-4d38-9dc4-52ed464952bf.png)
 
-En lähde nyt tuomaan noita .css tiedosotoja tai kuvia tänne, toimiipahan.
+En lähde tuomaan .css tiedosotoja tai kuvia tänne, sivu toimii ilmankin niitä vaikka onkin ruma.
 
 
 ## Toisen käyttäjän kotisivut

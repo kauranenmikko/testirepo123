@@ -45,3 +45,10 @@ Mennään katsomaan selaimesta tulos.
 
 Toimii, testataan muokkausta ilman sudoa.
 
+![image](https://user-images.githubusercontent.com/122888695/216947746-1232cff7-d826-46c6-859c-1675951407c5.png)
+
+Ja tämän jälkeen tajusin, että eihän tuo ikkunan avaaminen periaatteessa todista, että voin muokata tuota ilman sudoa, vaikka oikeudet poistinkin ennen sitä...
+
+Olisiko sille toisen tiedoston sisällön syöttäminen tarpeeksi?
+
+![image](https://user-images.githubusercontent.com/122888695/216948912-1e71a27d-bfc5-412f-82de-df45fe364b6e.png)

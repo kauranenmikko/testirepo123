@@ -58,4 +58,26 @@ Olisiko sille toisen tiedoston sisällön syöttäminen tarpeeksi?
 ![image](https://user-images.githubusercontent.com/122888695/216951748-eed4666d-c738-4726-9cf2-7ba5bc73d9a9.png)
 
 
+## Rikotaan Apache
 
+Menin /etc/apache2/ ja muokkasin apache2.conf tiedostoa, lisäsin ylimääräsen merkin merkkijonoon.
+
+![image](https://user-images.githubusercontent.com/122888695/216965966-f505fdb2-3261-43bc-92fb-2c899a8feb0b.png)
+
+Logitiedosto /var/log/apache2/error.log 
+
+        [Mon Feb 06 13:57:31.693472 2023] [mpm_event:notice] [pid 2223:tid 139735677697344] AH00491: caught SIGTERM, shutting down
+        
+Apachectl configtest
+
+        sudo apachectl configtest
+        
+Output
+
+        AH00526: Syntax error on line 162 of /etc/apache2/apache2.conf:
+        Argument for 'Require all' must be 'granted' or 'denied'
+        Action 'configtest' failed.
+        The Apache error log may have more information.
+        
+Lyhyt analyysi, tuo configtest virheilmoitus on paljon luettavampi ihmiselle ja viittaa jo virheeseen vaikka ei asiasta mitään oikeastaan tietäisi, ainakin tässä tapauksessa.
+Vastaavasti tuo error.log login virheilmoitus vaatii vähintään Googletusta, ja parhaillaan sekään ei kerro mitään.

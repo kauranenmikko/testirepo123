@@ -1,3 +1,9 @@
+Testaukset tehtiin Windows 10 pöytäkoneelta VirtualBoxissa olevaan Debian 11.6 versioon.
+
+Tehtävät lähde: https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat/#h6-based
+
+Lähteet: https://httpd.apache.org/docs/2.4/getting-started.html https://httpd.apache.org/docs/current/vhosts/name-based.html
+
 x) Lue ja tiivistä. Tiivistelmäksi riittää muutama ranskalainen viiva per artikkeli. (Tässä alakohdassa ei tarvitse tehdä testejä tietokoneella)
 
     Apache Software Foundation 2023: Getting Started

@@ -8,9 +8,13 @@ b) Tee Apachen asetustiedostoon kirjoitusvirhe. Etsi se työkalujen avulla. Vert
 
 ## Tiivitys
 
+### Apache Software Foundation 2023: Getting Started
+
   - DNS on tarpeellinen
   - Verkkosivujen sisältö voidaan jakaa staattiseen ja dynaamiseen
   - Error login sijainnin voi muuttaa ErrorLog direktiivillä (konfiguraatio tiedostossa)
+
+### Apache Software Foundation 2023: Name-based Virtual Host Support
 
   - Name-based Virtual Host antaa yhden IPn palvella monta eri URL osoitetta
   - VirtualHost > ServerName/ServerAlias
@@ -51,4 +55,7 @@ Ja tämän jälkeen tajusin, että eihän tuo ikkunan avaaminen periaatteessa to
 
 Olisiko sille toisen tiedoston sisällön syöttäminen tarpeeksi?
 
-![image](https://user-images.githubusercontent.com/122888695/216948912-1e71a27d-bfc5-412f-82de-df45fe364b6e.png)
+![image](https://user-images.githubusercontent.com/122888695/216951748-eed4666d-c738-4726-9cf2-7ba5bc73d9a9.png)
+
+
+

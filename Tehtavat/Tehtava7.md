@@ -24,7 +24,7 @@ Tehtävät lähde: https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat
 
 ## Virtualipalvelimen vuokraus
 
-Käytin GitHub Education paketin kautta DigitalOcean palveluita, tein sinne virtuaalikoneen. (Alla ohje käytännössä miten se meni, en tee uudelleen tässävaiheessa)
+Käytin GitHub Education paketin kautta DigitalOcean palveluita (löytyy https://www.digitalocean.com/), tein sinne virtuaalikoneen. (Alla ohje käytännössä miten se meni, en tee uudelleen tässävaiheessa)
 
 ![image](https://user-images.githubusercontent.com/122888695/217696642-5dffb9da-8bd4-4188-b855-89ffa4d828d3.png)
 

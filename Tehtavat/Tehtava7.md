@@ -134,7 +134,7 @@ Tosiaan portin avaus tapahtui jo ylemmässä vaiheessa, mutta lisätään se vie
         
 ## Murtautumisia?
 
-Tiesin jo että näitä on paljon, mutta kyllähän se vähän yllättää, että vajassa kolmessa päivässä logiin auth.logiin kertyy 3600 riviä.
+Tiesin jo että näitä on paljon, mutta kyllähän se vähän yllättää, että vajassa kolmessa päivässä logiin auth.log kertyy 3600+ riviä.
         
     Feb  8 16:42:42 debiantest sshd[25303]: Invalid user odoo8 from 189.159.15.128 port 43680
     Feb  8 16:42:42 debiantest sshd[25303]: Connection closed by invalid user odoo8 189.159.15.128 port 43680 [preauth]
@@ -151,10 +151,19 @@ Tiesin jo että näitä on paljon, mutta kyllähän se vähän yllättää, ett�
     Feb  8 17:47:06 debiantest sshd[25457]: Invalid user deploy from 36.38.62.211 port 49628
     Feb  8 17:47:11 debiantest sshd[25457]: error: maximum authentication attempts exceeded for invalid user deploy from 36.38.62.211 port 49628 ssh2 [preauth]
 
-Kiinostaisi tietää mistä tulee tunnus odoo8. Tämä on vain pieni snippetti näistä riveistä, lasketaas ne oikeen huvikseen.
+Kiinostaisi tietää mistä tulee tunnus odoo8. Tämä on vain pieni snippetti näistä riveistä, ajalta jolloin en varmasti itse käyttänyt konetta joten siellä ei ole omia IPitä seassa. Lasketaas näitä oikeen huvikseen.
 
-    cat /var/log/auth.log | grep -i -c 'invalid user'
+    cat /var/log/auth.log | grep -c 'Invalid user' 
     
-![image](https://user-images.githubusercontent.com/122888695/217706496-65aa6f15-91e8-4a9e-b54b-1881429f5215.png)
+![image](https://user-images.githubusercontent.com/122888695/217709767-10028c3e-fa00-4e1b-9724-01b4da25aed2.png)
 
-Jep. En ainakaan löytänyt yhtään ulkoista kirjautumista joka olisi onnistunut vielä, että siitä joku boonus.
+Jep. En ainakaan löytänyt yhtään odottamatonta kirjautumista joka olisi onnistunut vielä, että siitä joku boonus.
+
+
+## Lähteet
+
+https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat/#h6-real-internettm
+
+https://terokarvinen.com/2017/first-steps-on-a-new-virtual-private-server-an-example-on-digitalocean/
+
+https://www.digitalocean.com/

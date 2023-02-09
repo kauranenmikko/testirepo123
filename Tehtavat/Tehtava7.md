@@ -7,7 +7,17 @@
     d) Etsi merkkejä murtautumisyrityksistä.
 
 
-## Tiivitys
+## Tiivistys
+
+- ssh _käyttäjätunnus_@_ip osoite_ aloittaa SSH istunnon.
+- luo uusi tunnus ja anna sille hyvä salasana, lisää se sudo ryhmään
+- root tunnukselta kannattaa aina ottaa kirjautuminen pois, liian käytetty tunnus
+- Päivitykset tärkeät
+- sudo ufw allow portti/protocolla antaa avata portteja jos tarve
+    - vastaavasti disable sammuttaa portteja
+    - muista avata portti 22/TCP tai SSH yhteys ei enää toimi
+    - portti 80 tarvittu myös HTTP liikenteeseen/verkkosivuja varten
+
 
 ## Virtualipalvelimen vuokraus
 

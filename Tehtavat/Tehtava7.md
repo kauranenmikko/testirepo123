@@ -108,6 +108,10 @@ Alkoi myös ärsyttämään tuo nanon käyttö, asennettiin micro
 
 Kansiota tai index.html tiedostoa ei vielä tässä vaiheessa ole tuossa sijainnissa, käydään tekemässä se.
 
+![image](https://user-images.githubusercontent.com/122888695/217704812-cc9aa65b-73e9-4d08-8afd-53cc72324a29.png)
+
+![image](https://user-images.githubusercontent.com/122888695/217704686-2f16145e-9957-4eff-a7f8-08271361ad7e.png)
+
 
 
 ## Murtautumisia?

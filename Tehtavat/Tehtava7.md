@@ -108,11 +108,43 @@ Alkoi myös ärsyttämään tuo nanon käyttö, asennettiin micro
 
 Kansiota tai index.html tiedostoa ei vielä tässä vaiheessa ole tuossa sijainnissa, käydään tekemässä se.
 
-![image](https://user-images.githubusercontent.com/122888695/217704812-cc9aa65b-73e9-4d08-8afd-53cc72324a29.png)
+![image](https://user-images.githubusercontent.com/122888695/217704910-5ec94b0f-59d8-487c-a361-19db02c6d36d.png)
 
 ![image](https://user-images.githubusercontent.com/122888695/217704686-2f16145e-9957-4eff-a7f8-08271361ad7e.png)
 
+![image](https://user-images.githubusercontent.com/122888695/217705160-f90260f2-7503-4b81-9959-03efe66ceb31.png)
 
 
+        http://165.232.126.162/
+
+Tosiaan portin avaus tapahtui jo ylemmässä vaiheessa, mutta lisätään se vielä tähän kerran
+
+        sudo ufw allow 80/tcp
+        
+        
 ## Murtautumisia?
 
+Tiesin jo että näitä on paljon, mutta kyllähän se vähän yllättää, että vajassa kolmessa päivässä logiin auth.logiin kertyy 3600 riviä.
+        
+    Feb  8 16:42:42 debiantest sshd[25303]: Invalid user odoo8 from 189.159.15.128 port 43680
+    Feb  8 16:42:42 debiantest sshd[25303]: Connection closed by invalid user odoo8 189.159.15.128 port 43680 [preauth]
+    Feb  8 16:43:55 debiantest sshd[25305]: Invalid user admin from 14.47.209.92 port 61095
+    Feb  8 16:43:58 debiantest sshd[25305]: error: maximum authentication attempts exceeded for invalid user admin from 14.47.209.92 port 61095 ssh2 [preauth]
+    Feb  8 16:43:58 debiantest sshd[25305]: Disconnecting invalid user admin 14.47.209.92 port 61095: Too many authentication failures [preauth]
+    Feb  8 16:44:01 debiantest sshd[25307]: Invalid user admin from 14.47.209.92 port 61155
+    Feb  8 16:44:05 debiantest sshd[25307]: error: maximum authentication attempts exceeded for invalid user admin from 14.47.209.92 port 61155 ssh2 [preauth]
+    Feb  8 16:44:05 debiantest sshd[25307]: Disconnecting invalid user admin 14.47.209.92 port 61155: Too many authentication failures [preauth]
+    Feb  8 16:44:07 debiantest sshd[25309]: Invalid user admin from 14.47.209.92 port 61235
+    Feb  8 16:44:09 debiantest sshd[25309]: Connection reset by invalid user admin 14.47.209.92 port 61235 [preauth]
+    Feb  8 17:32:31 debiantest sshd[25449]: Invalid user vadmin from 14.45.116.152 port 61362
+    Feb  8 17:32:33 debiantest sshd[25449]: Connection closed by invalid user vadmin 14.45.116.152 port 61362 [preauth]
+    Feb  8 17:47:06 debiantest sshd[25457]: Invalid user deploy from 36.38.62.211 port 49628
+    Feb  8 17:47:11 debiantest sshd[25457]: error: maximum authentication attempts exceeded for invalid user deploy from 36.38.62.211 port 49628 ssh2 [preauth]
+
+Kiinostaisi tietää mistä tulee tunnus odoo8. Tämä on vain pieni snippetti näistä riveistä, lasketaas ne oikeen huvikseen.
+
+    cat /var/log/auth.log | grep -i -c 'invalid user'
+    
+![image](https://user-images.githubusercontent.com/122888695/217706496-65aa6f15-91e8-4a9e-b54b-1881429f5215.png)
+
+Jep. En ainakaan löytänyt yhtään ulkoista kirjautumista joka olisi onnistunut vielä, että siitä joku boonus.

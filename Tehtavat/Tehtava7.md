@@ -94,7 +94,21 @@ Lukitaan root tunnus salasanakirjautumiselta.
 
 
 
-## Asenna Apache2
+## Apache2
+
+Asensin sen jo aikaisemmassa vaiheessa, joten teen tässä lyhyet ja nopeat muokkaukset siihen.
+
+Alkoi myös ärsyttämään tuo nanon käyttö, asennettiin micro
+
+        sudo apt-get install micro
+
+![image](https://user-images.githubusercontent.com/122888695/217703894-4f6a6838-d662-4d73-bf5d-72453c8281a7.png)
+
+![image](https://user-images.githubusercontent.com/122888695/217704432-58e022d6-eaa2-44b2-b10d-003d3726e02f.png)
+
+Kansiota tai index.html tiedostoa ei vielä tässä vaiheessa ole tuossa sijainnissa, käydään tekemässä se.
+
+
 
 ## Murtautumisia?
 

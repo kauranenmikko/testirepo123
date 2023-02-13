@@ -1,6 +1,12 @@
+Testaukset tehtiin Windows 10 pöytäkoneelta VirtualBoxissa olevaan Debian 11.6 versioon, josta otettiin yhteys DigialOcean hostaamaan Debian 11/bullseye virtuaalikoneeseen.
+
+Tehtävät lähde: https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat/#h8-say-my-name
+
     a) Vuokraa domainnimi ja aseta se osoittamaan virtuaalipalvelimeesi.*
     b) Tutki oman nimesi tietoja 'host' ja 'dig' -komennoilla. Analysoi tulokset.
-    
+  
+  
+  
 ## Vuokrataan domaini
 
 Harmi kyllä tein tästä osan jo aikaisemmin, niin ei ole rekisteröinnistä paljoa kuvia antaa.
@@ -15,7 +21,7 @@ Tuo oli automaattisesti täyttänyt nuo Host Recordit roskalla, ilmeisesti osoit
 
 Ilmeisesti toimii?
 
-http://kauranen.me ja http://www.kauranen.me antavat saman sivun, ja toimivat.
+http://kauranen.me ja http://www.kauranen.me osoittavat samaan IP osoitteeseen, ja kummatkin toimivat.
 
 
 ## Tutkitaan domainin tietoja
@@ -55,7 +61,7 @@ Nuo "kauranen.me mail is handled by" rivit näyttävät kirjaimellisesti viittaa
 
     ;; Query time: 63 msec
     ;; SERVER: 8.8.8.8#53(8.8.8.8)
-    ;; WHEN: Mon Feb 13 03:15:21 EET 2023
+    ;; WHEN: Mon Feb 12 13:15:21 EET 2023
     ;; MSG SIZE  rcvd: 56
 
 
@@ -67,4 +73,36 @@ Tässä näkyy jo vähän enemmän tietoja.
 Näyttäisi olevan DNS vastaus formaatti. Header viittaa vaan yleisesti tuohon vastauksen muotoon? opcode on operation code, käytännössä minkätapainen kysely oli kyseessä, Query viittaa normaaliin kyselyyn.
 Status taas aika itsestään selittävä, DNS vastauksen/recordin status, NOERROR tarkoittaa, että se onnistui. ID on oman laitteen luoma tunnus tälle kyselylle, jonka DNS palvelin sitten palautti (jotta tiedetään, mikä kysely on kyseessä).
 
+    ;; OPT PSEUDOSECTION:
+    ; EDNS: version: 0, flags:; udp: 512
+    ;; QUESTION SECTION:
+    ;kauranen.me.			IN	A
+    
+Ilmeisesti "OPT PSEUDOSECTION" on jälkikäteen DNS:n lisätty ominaisuus, jolla lisättiin joitakin ominaisuuksia, "EDNS: version: 0" viittaa käytettyyn versioon. udp on käytetty verkkoprotokolla.
 
+Question Section viittaa lähetettyyn kyselyyn, tällä kertaa kauranen.me jolta etsittiin A-tyypin tietuetta.
+
+    ;; ANSWER SECTION:
+    kauranen.me.		300	IN	A	165.232.126.162
+    
+Ylempään liittyen kyselyyn tullut vastaus, kauranen.me, koodi 300 josta en ole täysin varma(voiko se olla HTTP vastaus, eli monta vaihtoehtoa?), A-tyypin tietue, IP osoite.
+
+    ;; Query time: 63 msec
+    ;; SERVER: 8.8.8.8#53(8.8.8.8)
+    ;; WHEN: Mon Feb 12 13:15:21 EET 2023
+    ;; MSG SIZE  rcvd: 56
+    
+Kyselyn kesto, kyselyyn käytetty palvelin, milloin kysely suoritettiin, vastaanoteotun viestin koko, ilmeisesti 56 tavua?
+
+
+
+## Lähteet:
+
+    
+https://en.wikipedia.org/wiki/MX_record
+
+https://en.wikipedia.org/wiki/Extension_Mechanisms_for_DNS
+
+https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat/
+
+https://www.namecheap.com/

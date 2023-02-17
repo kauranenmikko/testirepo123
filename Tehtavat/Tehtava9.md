@@ -8,6 +8,9 @@
     
 ## Yrityssofta/SQL
 
+Tylsä esimerkki, mutta esim. keksityn firman keksitty verkkokauppa. Verkkokauppaan pystyy rekisteröidä tunnuksen verkkosivulla, joka sitten tallentuu tietokantaan. Tietokannassa on myös aika varmasti jokainen verkkokaupasta saatava tuote jonka tiedot sitten luetaan vain listamuodossa esille verkkosivulle.
+
+Edut ovat varmaankin tietojen ylläpidon helppous, koska ne ovat yhdessä paikassa ja niillä pitäisi olla yhtenäisesti (ainakin omien taulujen sisällä) olla aika samanlaiset tiedot scheman takia. Vaihtoehtoisesti, kyllähän näitä on varmasti toteutettu kaikenlaisilla NSQL ratkaisuilla, tai jollakin saattaa olla tuotteet ihan hienosti pelkässä tekstitiedostossa jossa ne ylläpidetään. Eduiksi itse näen SQL pakottamat Schemat, järjestyksen ja tiedon muokkauksen helppouden. (ja oikeuksienhallinnan/logit vaikka ne ovat ehkä vähän eri aihe) 
 
 
 ## Postgre toinen tunnus
@@ -20,7 +23,7 @@ Sain Postgren jo toimimaan tunnilla, joten toinen tunnus ja sille tietokanta.
     sudo -u postgres createuser mikkote1
     su mikkote1
 
-Ensin tarkistin /etc/passwd tiedostosta, millä nimillä olin luonut muut tunnukset. Yllä ne rivit mitkä oikeasti tekivät mitään.
+Ensin tarkistin /etc/passwd tiedostosta, millä nimillä olin luonut muut tunnukset. Yllä ne rivit mitkä oikeasti tekivät mitään tehtävään liittyvää.
 
 Kirjauduin mikkote1 tunnukselle ja testasin psql komentoa. Koitin sen jälkeen suorittaa yksinkertaisen testin.
 
@@ -78,9 +81,50 @@ Taulu suoritti tarvittavan. Taulu poistetaan.
 
 ## Maria
 
+Vähän erilainen tunnuksen luontiprosessi, mutta onneksi on ohjeet.
 
+      sudo mariadb -u root
+      create database test;
+      create user 'mikko'@'localhost';
+      grant all on test.* to mikko@localhost;
+      exit
+      mariadb -u mikko
+      use test;
+      create table testia; (vaatiikin vähintään yhden rivin tässä vaiheessa)
+      create table testia (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(200), test FLOAT);
+      
+      
+Tuo oli kaikki aika putkijuoksua ja vähän manuaalin lukemista.
+
+Sitten itse testaaminen käyttäjällä tuohon lutuun tietokantaan ja sen tauluun.
+
+       INSERT INTO testia(name, test) VALUES ("Testirivi", 105);
+       INSERT INTO testia(name, test) VALUES ("Peruna", 1.5);
+       select * from testia
+ 
+![image](https://user-images.githubusercontent.com/122888695/219555829-417a32da-a87c-47c5-abee-83a516ff9e6a.png)
+
+Tiedot menivät tauluun, taulun rivien päivitys.
+
+      update testia SET test=10 where name="Peruna";
+      select * from testia;
+
+![image](https://user-images.githubusercontent.com/122888695/219556024-95ba1622-8eb8-44f1-8ece-c691edf27243.png)
+
+Onnistui, seuraavaksi rivin poisto.
+
+      delete from testia where test<100; 
+      select * from testia;
+
+![image](https://user-images.githubusercontent.com/122888695/219556121-f007dd6a-c7eb-4400-8dd0-fa37ebd1300b.png)
+
+Sekin onnistui. 
+          
 
 ## Lähteet
 
 https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat/#h9-sequel
 
+https://terokarvinen.com/2016/03/05/postgresql-install-and-one-table-database-sql-crud-tutorial-for-ubuntu/
+
+https://terokarvinen.com/2018/09/20/install-mariadb-on-ubuntu-18-04-database-management-system-the-new-mysql/

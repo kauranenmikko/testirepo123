@@ -50,9 +50,11 @@ Tarkistetaan, että tieto meni tauluun. (ja tästä välistä puuttuu yksi yrity
 ![image](https://user-images.githubusercontent.com/122888695/219548461-dc295370-b9e8-4088-acbf-96e54d23e0f9.png)
 
 
-Nyt koska minulla on kaksi riviä ihan samalla nimellä (mutta eri id:llä), jouduin ihan vähän muokkaamaan tätä seuraavaa askelta, jotta se oikeasti päivittää vain halutun rivin.
+Nyt koska minulla on kaksi riviä ihan samalla nimellä (mutta eri id:llä), jouduin ihan vähän muokkaamaan tätä seuraavaa askelta, jotta se oikeasti päivittää vain halutun rivin. Tarkistetaan taulun sisältö sen jälkeen.
 
     UPDATE test1 SET name='Mikko Kauranen' WHERE id=1 and name='Mikko';
+     select * from test1;
+
 
 ![image](https://user-images.githubusercontent.com/122888695/219549130-f978ea5e-34e1-42be-b8bb-33d299edea57.png)
 
@@ -66,8 +68,17 @@ Poistetaan taulusta rivi 'Mikko' ja tarkistetaan taulun sisältö taas.
 
 ![image](https://user-images.githubusercontent.com/122888695/219549391-33eb911b-2c54-4fbe-acc3-0d8c5e80d0a9.png)
 
+Taulu suoritti tarvittavan. Taulu poistetaan.
+
+      drop table test1;
+
+![image](https://user-images.githubusercontent.com/122888695/219549671-a5454a9d-1144-4d98-a478-b079b4ea48e0.png)
+
+;_;7
 
 ## Maria
+
+
 
 ## Lähteet
 

@@ -109,4 +109,66 @@ Testataan tunnuksella kirjautumista. (koitan aikaisemmin luodulla)
 
 ![image](https://user-images.githubusercontent.com/122888695/221460895-5ade54e5-5a25-4d79-853f-f5a2e6bbfcd8.png)
 
+## Luodaan uusi tietokanta
 
+Luodaan "app" keksityllä nimellä ja muokataan luotua models.py tiedostoa.
+
+        ./manage.py startapp testikaksi
+        micro testikaksi/models.py
+        
+![image](https://user-images.githubusercontent.com/122888695/221469055-9539eddb-a57a-43df-8bcd-3d423f0671ce.png)
+
+Lisättiin kyseiseen tiedostoon muutama rivi teksiä, nyt luodulla nimellä Bananas
+        
+        class Banana(models.Model):
+    name = models.CharField(max_length=160)
+    
+    def __str__(self):
+        return self.name
+
+        
+![image](https://user-images.githubusercontent.com/122888695/221468866-90d1d00c-7a36-4864-b03c-25eb9853ca71.png)
+
+Lisättiin kyseinen luotu app ympäristön settings.py listaan INSTALLED_APPS alle.
+
+![image](https://user-images.githubusercontent.com/122888695/221469388-c3c2a84c-5cb0-4f13-8967-6da01f0a3918.png)
+
+Ajettiin muutokset.
+
+      ./manage.py makemigrations
+      ./manage.py migrate
+      
+![image](https://user-images.githubusercontent.com/122888695/221469823-92146d2b-7a3a-4d9e-9b53-5565a5f52d40.png)
+
+Käynnistettiin palvelin.
+
+        ./manage.py runserver
+        
+Tässä vaiheessa unohdettiin, että tuo pitää lisätä näkyviin. Mentiin muokkaamaan testikaksi/admin.py tiedostoa
+
+        micro testikaksi/admin.py 
+        
+        from django.contrib import admin
+        from . import models
+
+        admin.site.register(models.Banana)
+
+Päivitettiin verkkosivu, ja se tuli näkyviin.
+
+![image](https://user-images.githubusercontent.com/122888695/221470223-8b7f845a-820a-4337-a520-28c21318aa2c.png)
+
+Lisättiin Banana1.
+
+![image](https://user-images.githubusercontent.com/122888695/221470321-e5753ab4-db7c-4b8e-b447-9ee9a07c4c3e.png)
+
+
+
+Lähteet/Käytetty dokumentaatio:
+
+https://docs.djangoproject.com/en/4.1/ref/applications/
+
+https://docs.djangoproject.com/en/4.1/intro/tutorial01/
+
+https://terokarvinen.com/2022/django-instant-crm-tutorial/
+
+https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat/#h10-dj-ango

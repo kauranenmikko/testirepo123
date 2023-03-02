@@ -52,3 +52,17 @@ Tarkistetaan pip asennussijainti, luodaan requirements.txt, kirjoitetaan sinne '
     django-admin --version
 
 ![image](https://user-images.githubusercontent.com/122888695/222459550-41b2fad4-bb3f-464e-b552-765ebb570e01.png)
+
+Luodaan django projekti
+
+    django-admin startproject mikko
+    
+Saadaan virheilmoitus 
+
+![image](https://user-images.githubusercontent.com/122888695/222477850-f274b8c5-b114-4b87-923c-0e32c8841a67.png)
+
+### Lisää säätöä
+
+Tässä vaiheessa kun piti aloittaa django projekti, tuli huomattua, että se ei toimi tuolla perus komennolla jos projektin niminen kansio on jo olemassa.
+Päätin tehdä sen takia toisen nimisen projektin kunnes mietin asiaa vähän pidemmälle ja tajusin, että ei se oikeasti voi näin toimia. Hetken etsinnän jälkeen löysin, että '.' lisääminen projektin perään sallii jo olemassaolevan kansion käyttöä, joten tehtiin vähän säätöä.
+

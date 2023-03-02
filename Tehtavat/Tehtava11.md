@@ -66,3 +66,37 @@ Saadaan virheilmoitus
 Tässä vaiheessa kun piti aloittaa django projekti, tuli huomattua, että se ei toimi tuolla perus komennolla jos projektin niminen kansio on jo olemassa.
 Päätin tehdä sen takia toisen nimisen projektin kunnes mietin asiaa vähän pidemmälle ja tajusin, että ei se oikeasti voi näin toimia. Hetken etsinnän jälkeen löysin, että '.' lisääminen projektin perään sallii jo olemassaolevan kansion käyttöä, joten tehtiin vähän säätöä.
 
+Eli korjauksia.
+
+Luon uuden kansion ja alakansion /home/mikko/publictest/apate/static
+
+    mkdir -p apate/static/
+    
+Kopioin index.html tiedoston mikko/static apate/static sisälle
+
+    cd apate
+    cd static
+    cp /home/mikko/publictest/mikko/static/index.html /home/mikko/publictest/apate/static/
+    
+Poistan vanhat kansiot häiritsemästä
+
+    rm -r mikko
+    
+Aloitan uuden projektin nyt uudesta kansiosta
+
+    django-admin startproject apate .
+    
+Korjataan tuo sites-available .conf tiedosto
+
+    sudoedit /etc/apache2/sites-available/mikkotest.conf
+
+![image](https://user-images.githubusercontent.com/122888695/222480810-a0702765-6464-4407-a255-64431316111f.png)
+
+
+Testataan verkkosivu 
+
+![image](https://user-images.githubusercontent.com/122888695/222480957-571075e8-64ea-4f4a-afcd-846966657d00.png)
+![image](https://user-images.githubusercontent.com/122888695/222481049-4680371c-f824-4c88-9fd2-92c938f2be4d.png)
+
+Näyttää taas normaalilta (oli HTTP 403 välissä, unohtu kuvienotto siitä)
+

@@ -100,3 +100,5 @@ Testataan verkkosivu
 
 Näyttää taas normaalilta (oli HTTP 403 välissä, unohtu kuvienotto siitä)
 
+
+## mod wsgi

@@ -102,3 +102,39 @@ Näyttää taas normaalilta (oli HTTP 403 välissä, unohtu kuvienotto siitä)
 
 
 ## mod wsgi
+
+Nyt mennään vähän muistista koska keulittiin ongelmien takia.
+
+Asennetaan mod wsgi
+
+    sudo apt-get -y install libapache2-mod-wsgi-py3
+    
+Luodaan uusi VirtualHost tiedosto
+
+    sudoedit /etc/apache2/sites-available/uusisivu.conf
+    Muokataan ekat neljä riviä:
+    Define TDIR /home/mikko/publictest/
+    Define TWSGI /home/mikko/publictest/apate/wsgi.py
+    Define TUSER mikko
+    Define TVENV /home/mikko/publictest/env/lib/python3.9/site-packages
+    
+Ongelmien ratkomisen aikana huomasin, että olin aktivoinut projektin väärässä kansiossa. Joten muokataan vielä vähän jotta saadaan localhost/static/ sivu toimimaan. Lisätään oikea polku VirtualHost Alias ja Directory riveille
+    
+    Alias /static/ ${TDIR}apate/static/
+        <Directory ${TDIR}apate/static/>
+
+Testataan config
+
+    /sbin/apache2ctl configtest
+    
+Käynnistetään apache uudelleen
+
+    sudo systemctl restart apache2
+    
+Testataan
+
+    curl -sI localhost | grep Server
+    
+![image](https://user-images.githubusercontent.com/122888695/222746582-4d6ca499-eed6-4691-b562-cc55ee7b3d0a.png)
+![image](https://user-images.githubusercontent.com/122888695/222746841-fe064a47-3f12-488f-a529-586e58ef501b.png)
+

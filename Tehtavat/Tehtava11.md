@@ -64,7 +64,7 @@ Saadaan virheilmoitus
 ### Lisää säätöä
 
 Tässä vaiheessa kun piti aloittaa django projekti, tuli huomattua, että se ei toimi tuolla perus komennolla jos projektin niminen kansio on jo olemassa.
-Päätin tehdä sen takia toisen nimisen projektin kunnes mietin asiaa vähän pidemmälle ja tajusin, että ei se oikeasti voi näin toimia. Hetken etsinnän jälkeen löysin, että '.' lisääminen projektin perään sallii jo olemassaolevan kansion käyttöä, joten tehtiin vähän säätöä.
+Päätin tehdä sen takia toisen nimisen projektin kunnes mietin asiaa vähän pidemmälle ja totesin, että ei se oikeasti voi näin toimia. Hetken etsinnän jälkeen löysin ratkaisun, voit lisätä '.' projektin perään joka sallii jo olemassaolevan kansion käyttöä, joten tehtiin vähän säätöä.
 
 Eli korjauksia.
 
@@ -109,7 +109,7 @@ Asennetaan mod wsgi
 
     sudo apt-get -y install libapache2-mod-wsgi-py3
     
-Luodaan uusi VirtualHost tiedosto
+Luodaan uusi VirtualHost tiedosto koska (pohja https://terokarvinen.com/2022/deploy-django/#connect-python-to-apache-using-mod_wsgi)
 
     sudoedit /etc/apache2/sites-available/uusisivu.conf
     Muokataan ekat neljä riviä:
@@ -118,7 +118,12 @@ Luodaan uusi VirtualHost tiedosto
     Define TUSER mikko
     Define TVENV /home/mikko/publictest/env/lib/python3.9/site-packages
     
-Ongelmien ratkomisen aikana huomasin, että olin aktivoinut projektin väärässä kansiossa. Joten muokataan vielä vähän jotta saadaan localhost/static/ sivu toimimaan. Lisätään oikea polku VirtualHost Alias ja Directory riveille
+Aktivoidaan uusi sivu, ja disabloidaan vanha
+
+    sudo a2ensite uusisivu
+    sudo a2dissite mikkotest
+    
+Ongelmien ratkomisen aikana huomasin, että olin aktivoinut projektin väärässä kansiossa. Joten muokataan vielä vähän jotta saadaan localhost/static/ sivu toimimaan. Lisätään oikea polku VirtualHost Alias ja Directory riveille. 
     
     Alias /static/ ${TDIR}apate/static/
         <Directory ${TDIR}apate/static/>
@@ -138,3 +143,10 @@ Testataan
 ![image](https://user-images.githubusercontent.com/122888695/222746582-4d6ca499-eed6-4691-b562-cc55ee7b3d0a.png)
 ![image](https://user-images.githubusercontent.com/122888695/222746841-fe064a47-3f12-488f-a529-586e58ef501b.png)
 
+## Lähteet
+
+https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat/
+
+https://terokarvinen.com/2022/deploy-django/
+
+https://automationpanda.com/2018/02/06/starting-a-django-project-in-an-existing-directory/ 

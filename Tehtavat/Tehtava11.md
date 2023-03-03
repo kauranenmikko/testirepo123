@@ -132,6 +132,8 @@ Testataan config
 
     /sbin/apache2ctl configtest
     
+![image](https://user-images.githubusercontent.com/122888695/222755021-8b998458-ed7f-46d7-9d5b-094aa7583085.png)
+
 Käynnistetään apache uudelleen
 
     sudo systemctl restart apache2

@@ -103,7 +103,7 @@ Näyttää taas normaalilta (oli HTTP 403 välissä, unohtu kuvienotto siitä)
 
 ## mod wsgi
 
-Nyt mennään vähän muistista koska keulittiin ongelmien takia.
+Nyt mennään vähän muistista koska keulittiin ongelmien takia. (Tuli Error 500, logeissa ModuleNotFoundError: No module named 'apate'. Ongelma taisi käytännössä johtua siitä, että olin aktivoinut virualenvin "väärässä" kansiossa, ja virualhostin TDIR oli siten yhden kansion liian syvällä)
 
 Asennetaan mod wsgi
 

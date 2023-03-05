@@ -154,4 +154,51 @@ Mjahas. Katsotaas.
     maalis 05 18:14:33 titanic apachectl[4071]: AH00526: Syntax error on line 7 of /etc/apache2/sites-enabled/uusisivu.conf:
     maalis 05 18:14:33 titanic apachectl[4071]: The address or port is invalid
 
-Hitsi, kun nämä tarkastukset ovat liian fiksuja nykyään. Tuo aika suoraan kertoo taas missä on ongelma ja mikä ongelma on; rivi 7 tiedostossa /etc/apache2/sites-enabled/uusisivu.conf sisältää väärän osoitteen tai portin. 
+Hitsi, kun nämä tarkastukset ovat liian fiksuja. Tuo aika suoraan kertoo taas missä on ongelma ja mikä ongelma on; rivi 7 tiedostossa /etc/apache2/sites-enabled/uusisivu.conf sisältää väärän osoitteen tai portin. 
+
+Korjataan tuo takaisin
+
+    sudoedit /etc/apache2/sites-available/uusisivu.conf
+    <VirtualHost :80> -> <VirtualHost *:80>
+
+Käynnistetään apache2 uudelleen
+   
+    sudo systemctl restart apache2
+    
+![image](https://user-images.githubusercontent.com/122888695/222974398-92c965fd-2e94-4b8b-afbd-01ff0d2b8df6.png)
+
+Toimii
+
+## Apachen WSGI-moduli puuttuu
+
+    sudo apt-get purge libapache2-mod-wsgi-py3
+    
+![image](https://user-images.githubusercontent.com/122888695/222974551-40eed4aa-81b0-4b7e-bc92-1076912504f9.png)
+
+Käynnistetään apache2 uudelleen.
+
+    sudo systemctl restart apache2
+    sudo systemctl status apache2
+
+![image](https://user-images.githubusercontent.com/122888695/222974752-6cb259b3-5c7b-4199-ba34-295770d3ef4a.png)
+
+/var/log/apache2/error.log
+
+    [Sun Mar 05 18:14:33.128549 2023] [mpm_event:notice] [pid 888:tid 139917713141056] AH00491: caught SIGTERM, shutting down
+    [Sun Mar 05 18:50:44.443531 2023] [mpm_event:notice] [pid 4511:tid 139628985412928] AH00489: Apache/2.4.54 (Debian) mod_wsgi/4.7.1 Python/3.9 configured -- resuming normal operations
+    [Sun Mar 05 18:50:44.443574 2023] [core:notice] [pid 4511:tid 139628985412928] AH00094: Command line: '/usr/sbin/apache2'
+    [Sun Mar 05 16:57:03.617547 2023] [wsgi:error] [pid 4512:tid 139628939335424] [remote 127.0.0.1:49476] Not Found: /favicon.ico
+    [Sun Mar 05 16:57:04.959368 2023] [wsgi:error] [pid 4512:tid 139628939335424] [remote 127.0.0.1:49484] Not Found: /favicon.ico
+    [Sun Mar 05 16:57:05.672942 2023] [wsgi:error] [pid 4512:tid 139628939335424] [remote 127.0.0.1:49490] Not Found: /favicon.ico
+    [Sun Mar 05 16:57:16.860571 2023] [wsgi:error] [pid 4512:tid 139628939335424] [remote 127.0.0.1:33222] Not Found: /favicon.ico
+    [Sun Mar 05 18:58:43.339566 2023] [mpm_event:notice] [pid 4511:tid 139628985412928] AH00491: caught SIGTERM, shutting down
+    
+Yllättävän mitäänsanomaton logi. Ja aika tilttaava huomio että nuo core:notice rivit ovat koneen omalla ajalla mutta wsgi:error rivit ilmeisesti UTC+0 ajalla ja kummatkin ovat samassa logissa ilman isompia mainintoja aikavyöhykeestä. Ja en oikein tiedä mistä tuo "mod_wsgi/4.7.1 Python/3.9 configured -- resuming normal operations" tuli, ottaen huomioon että "konfiguraatio" mitä tehtiin oli palikan poistaminen ~18:14.
+
+/sbin/apache2ctl configtest
+
+    AH00526: Syntax error on line 13 of /etc/apache2/sites-enabled/uusisivu.conf:
+    Invalid command 'WSGIDaemonProcess', perhaps misspelled or defined by a module not included in the server configuration
+    Action 'configtest' failed.
+    The Apache error log may have more information.
+

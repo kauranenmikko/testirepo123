@@ -86,6 +86,72 @@ Testataan verkkosivua.
 /var/log/apache2/other_vhosts_access.log
 
     127.0.1.1:80 127.0.0.1 - - [05/Mar/2023:17:23:59 +0200] "GET / HTTP/1.1" 200 3746 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"
-    127.0.1.1:80 127.0.0.1 - - [05/Mar/2023:17:23:59 +0200] "GET /static/admin/css/fonts.css HTTP/1.1" 404 487 "http://localhost/" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"
     
 Ja sivu toimii taas.
+
+
+## Projektikansiolla väärät oikeudet
+
+    chmod ugo-rwx publictest/
+    
+![image](https://user-images.githubusercontent.com/122888695/222970071-2fc216c2-0b76-4a7c-aac9-db42b15a0efb.png)
+
+Testaan verkkosivua.
+
+![image](https://user-images.githubusercontent.com/122888695/222970087-79ec737d-451c-46c6-9e87-91c09bbb3e82.png)
+![image](https://user-images.githubusercontent.com/122888695/222970130-bf1c0a72-7822-4fbf-a27f-a25c092b59c9.png)
+
+/var/log/apache2/error.log
+
+    [Sun Mar 05 17:34:32.208405 2023] [core:error] [pid 891:tid 139917350926080] (13)Permission denied: [client ::1:36066] AH00035: access to / denied (filesystem path '/home/mikko/publictest/apate') because search permissions are missing on a component of the path
+
+Taas aika helppolukuinen virheilmoitus, yksinkertaisesti ei ole "search" oikeuksia johonkin osaan tuossa polussa '/home/mikko/publictest/apate'. Tarkistetaan vielä, mitä tuo AH00035 itsessään tarkoittaa. 
+
+https://cwiki.apache.org/confluence/display/httpd/13PermissionDenied
+
+Samalta näyttäisi.
+
+Korjataan oikeudet.
+
+    chmod ugo+rwx publictest/
+    
+Tässä tuli jopa vähän liikaa oikeuksia.
+
+![image](https://user-images.githubusercontent.com/122888695/222971023-1ede4f6f-c04a-4a68-a81f-6dbd7c675d7d.png)
+
+Korjataan ylimääräiset oikeudet pois.
+
+    chmod go-w publictest/
+    
+![image](https://user-images.githubusercontent.com/122888695/222971054-3c4b815f-3e55-45ae-9738-7c04fd74f8b8.png)
+
+Näyttää paremmalta.
+
+Testataan verkkosivu.
+
+![image](https://user-images.githubusercontent.com/122888695/222971903-9514c7d5-bc2b-41c9-afc8-02b01a115de1.png)
+
+## Kirjoitusvirhe Apachen asetustiedostossa
+
+Tehdään sellainen virhe, joka itsellä tulisi herkästi.
+
+/etc/apache2/sites-available/uusisivu.conf
+
+    <VirtualHost *:80> -> <VirtualHost :80>
+
+Käynnistetään Apache uudelleen.
+
+    sudo systemctl restart apache2
+    
+![image](https://user-images.githubusercontent.com/122888695/222972443-9667f675-cb58-479d-913e-9339b03dd08b.png)
+
+Mjahas. Katsotaas.
+
+    sudo systemctl status apache2
+    
+![image](https://user-images.githubusercontent.com/122888695/222972484-3b7d83ee-ab47-45e5-ad38-42b078dcf059.png)
+
+    maalis 05 18:14:33 titanic apachectl[4071]: AH00526: Syntax error on line 7 of /etc/apache2/sites-enabled/uusisivu.conf:
+    maalis 05 18:14:33 titanic apachectl[4071]: The address or port is invalid
+
+Hitsi, kun nämä tarkastukset ovat liian fiksuja nykyään. Tuo aika suoraan kertoo taas missä on ongelma ja mikä ongelma on; rivi 7 tiedostossa /etc/apache2/sites-enabled/uusisivu.conf sisältää väärän osoitteen tai portin. 

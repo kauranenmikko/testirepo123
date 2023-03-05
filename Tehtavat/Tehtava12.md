@@ -182,6 +182,15 @@ Käynnistetään apache2 uudelleen.
 
 ![image](https://user-images.githubusercontent.com/122888695/222974752-6cb259b3-5c7b-4199-ba34-295770d3ef4a.png)
 
+Testataan verkkosivu, olettaen ei enää toimi.
+
+![image](https://user-images.githubusercontent.com/122888695/222976003-f47f6b08-d251-4364-b693-0e0fbeeffc02.png)
+![image](https://user-images.githubusercontent.com/122888695/222976008-053d5c4b-b1d7-40ea-9a06-e80f61e04726.png)
+
+Jep.
+
+Katsotaan logeja.
+
 /var/log/apache2/error.log
 
     [Sun Mar 05 18:14:33.128549 2023] [mpm_event:notice] [pid 888:tid 139917713141056] AH00491: caught SIGTERM, shutting down
@@ -193,7 +202,7 @@ Käynnistetään apache2 uudelleen.
     [Sun Mar 05 16:57:16.860571 2023] [wsgi:error] [pid 4512:tid 139628939335424] [remote 127.0.0.1:33222] Not Found: /favicon.ico
     [Sun Mar 05 18:58:43.339566 2023] [mpm_event:notice] [pid 4511:tid 139628985412928] AH00491: caught SIGTERM, shutting down
     
-Yllättävän mitäänsanomaton logi. Ja aika tilttaava huomio että nuo core:notice rivit ovat koneen omalla ajalla mutta wsgi:error rivit ilmeisesti UTC+0 ajalla ja kummatkin ovat samassa logissa ilman isompia mainintoja aikavyöhykeestä. Ja en oikein tiedä mistä tuo "mod_wsgi/4.7.1 Python/3.9 configured -- resuming normal operations" tuli, ottaen huomioon että "konfiguraatio" mitä tehtiin oli palikan poistaminen ~18:14.
+Yllättävän mitäänsanomaton logi. Ja aika tilttaava huomio että nuo core:notice rivit ovat koneen omalla ajalla mutta wsgi:error rivit ilmeisesti UTC+0 ajalla ja kummatkin ovat samassa logissa peräkkäin ilman isompia mainintoja aikavyöhykeestä. Ja en oikein tiedä mistä tuo "mod_wsgi/4.7.1 Python/3.9 configured -- resuming normal operations" tuli, ottaen huomioon että "konfiguraatio" mitä tehtiin oli palikan poistaminen ~18:14.
 
 /sbin/apache2ctl configtest
 
@@ -201,4 +210,80 @@ Yllättävän mitäänsanomaton logi. Ja aika tilttaava huomio että nuo core:no
     Invalid command 'WSGIDaemonProcess', perhaps misspelled or defined by a module not included in the server configuration
     Action 'configtest' failed.
     The Apache error log may have more information.
+
+Tämä viittaa puuttuvaan moduuliin tai väärään komentoon, 'WSGIDaemonProcess' ei löydy nykyisestä konfiguraatiosta. 
+
+Itselle vähän tuntematon alue, joten mennään kaivamaan vähän apua ongelman ratkomisessa.
+
+https://modwsgi.readthedocs.io/en/develop/user-guides/checking-your-installation.html
+
+Ohjeissa komento /usr/sbin/httpd -V on /sbin/apache2ctl -V debianissa.
+
+![image](https://user-images.githubusercontent.com/122888695/222976369-d113f049-348d-4d2f-b2df-35349caa7425.png)
+
+Koitetaan katsoa mitkä moduulit on ladattu. 
+
+        /sbin/apache2ctl -h
+        /sbin/apache2ctl -M
+        
+        AH00526: Syntax error on line 13 of /etc/apache2/sites-enabled/uusisivu.conf:
+        Invalid command 'WSGIDaemonProcess', perhaps misspelled or defined by a module not included in the server configuration
+        Action '-M' failed.
+        The Apache error log may have more information.
+
+Harmi sinäänsä, että tästä ei kauheasti uutta opittu.
+
+Koitetaan toimiiko django kuitenkin? Virtuaaliympäristössä:
+
+    ./manage.py runserver
+    
+![image](https://user-images.githubusercontent.com/122888695/222976844-22a9cdb7-394b-46f4-98d8-5072cb2543c3.png)
+![image](https://user-images.githubusercontent.com/122888695/222976855-99011527-a257-4e5a-9109-48308dca86d8.png)
+
+Okei, tässä vaiheessa voisi kuvitella ongelman liittyvän tuohon WSGI moduuliin.
+
+Asennetaan moduuli uudelleen.
+
+![image](https://user-images.githubusercontent.com/122888695/222977026-fde6f254-494a-433a-b828-c845dbd87de8.png)
+![image](https://user-images.githubusercontent.com/122888695/222977063-7208d194-151e-4731-b0aa-371dad876956.png)
+
+Ja ongelma ratkesi. 
+
+
+## Väärät domain-nimet ALLOWED_HOSTS-kohdassa
+
+/home/mikko/publictest/apate/settings.py
+    
+    DEBUG=False
+    ALLOWED_HOSTS = ["lolcalhost","127.0.0.1"]
+    sudo systemctl restart apache2
+    
+Testataan selaimella ja curlilla http://localhost .
+
+![image](https://user-images.githubusercontent.com/122888695/222977338-377e5589-8205-4794-a7f7-005c9a195e23.png)
+![image](https://user-images.githubusercontent.com/122888695/222977382-9f5a82fe-6fde-49bb-a580-7c9a8cfcbc18.png)
+
+Logeja.
+
+/var/log/apache2/error.log
+
+    [Sun Mar 05 19:54:02.354598 2023] [mpm_event:notice] [pid 5388:tid 139682201144640] AH00492: caught SIGWINCH, shutting down gracefully
+    [Sun Mar 05 19:54:02.439338 2023] [mpm_event:notice] [pid 5548:tid 140321722072384] AH00489: Apache/2.4.54 (Debian) mod_wsgi/4.7.1 Python/3.9 configured -- resuming normal operations
+    [Sun Mar 05 19:54:02.439390 2023] [core:notice] [pid 5548:tid 140321722072384] AH00094: Command line: '/usr/sbin/apache2'
+
+Ei sano mitään ongelmaan liittyvää.
+
+/var/log/apache2/other_vhosts_access.log
+
+    127.0.1.1:80 127.0.0.1 - - [05/Mar/2023:20:00:12 +0200] "GET / HTTP/1.1" 400 442 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"
+
+Tämäkään ei kauheasti kerro, saatiin vastaus 400 HTTP GET requestiin, käytetty osoite 127.0.0.1:80/localhost. 
+
+/sbin/apache2ctl configtest
+
+    AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message
+    Syntax OK
+
+Täälläkään ei ole mitään poikkeavaa.
+
 

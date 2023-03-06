@@ -1,3 +1,8 @@
+Testaukset tehtiin Windows 10 pöytäkoneelta VirtualBoxissa olevaan Debian 11.6 versioon.
+
+Tehtävänanto: https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat/#h12-vianselvitys
+
+
 ## Vianselvitys
 
 ### Lähtötilanne
@@ -313,30 +318,51 @@ Toistan ongelman mikä itsellä oli aikaisemamssa tehtävässä.
     sudoedit /etc/apache2/sites-available/uusisivu.conf
     Define TDIR /home/mikko/publictest/ -> Define TDIR /home/mikko/publictest/apate/ 
     
-```    [Mon Mar 06 07:47:24.216810 2023] [wsgi:info] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554] mod_wsgi (pid=3089, process='mikko', application=''): Loading Python script file '/home/mikko/publictest/apate/wsgi.py'.
-    [Mon Mar 06 07:47:24.217300 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554] mod_wsgi (pid=3089): Failed to exec Python script file '/home/mikko/publictest/apate/wsgi.py'.
-    [Mon Mar 06 07:47:24.217374 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554] mod_wsgi (pid=3089): Exception occurred processing WSGI script '/home/mikko/publictest/apate/wsgi.py'.
-    [Mon Mar 06 07:47:24.217486 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554] Traceback (most recent call last):
-    [Mon Mar 06 07:47:24.217562 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "/home/mikko/publictest/apate/wsgi.py", line 17, in <module>
-    [Mon Mar 06 07:47:24.217568 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]     application = get_wsgi_application()
-    [Mon Mar 06 07:47:24.217573 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "/home/mikko/publictest/env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
-    [Mon Mar 06 07:47:24.217575 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]     django.setup(set_prefix=False)
-    [Mon Mar 06 07:47:24.217585 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "/home/mikko/publictest/env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
-    [Mon Mar 06 07:47:24.217587 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]     configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
-    [Mon Mar 06 07:47:24.217591 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "/home/mikko/publictest/env/lib/python3.9/site-packages/django/conf/__init__.py", line 92, in __getattr__
-    [Mon Mar 06 07:47:24.217593 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]     self._setup(name)
-    [Mon Mar 06 07:47:24.217596 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "/home/mikko/publictest/env/lib/python3.9/site-packages/django/conf/__init__.py", line 79, in _setup
-    [Mon Mar 06 07:47:24.217598 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]     self._wrapped = Settings(settings_module)
-    [Mon Mar 06 07:47:24.217601 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "/home/mikko/publictest/env/lib/python3.9/site-packages/django/conf/__init__.py", line 190, in __init__
-    [Mon Mar 06 07:47:24.217603 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]     mod = importlib.import_module(self.SETTINGS_MODULE)
-    [Mon Mar 06 07:47:24.217606 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "/usr/lib/python3.9/importlib/__init__.py", line 127, in import_module
-    [Mon Mar 06 07:47:24.217608 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]     return _bootstrap._gcd_import(name[level:], package, level)
-    [Mon Mar 06 07:47:24.217612 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
-    [Mon Mar 06 07:47:24.217619 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
-    [Mon Mar 06 07:47:24.217623 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "<frozen importlib._bootstrap>", line 972, in _find_and_load_unlocked
-    [Mon Mar 06 07:47:24.217662 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
-    [Mon Mar 06 07:47:24.217671 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
-    [Mon Mar 06 07:47:24.217674 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
-    [Mon Mar 06 07:47:24.217678 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
-    [Mon Mar 06 07:47:24.217688 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554] ModuleNotFoundError: No module named 'apate'
+``` 
+[Mon Mar 06 07:47:24.216810 2023] [wsgi:info] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554] mod_wsgi (pid=3089, process='mikko', application=''): Loading Python script file '/home/mikko/publictest/apate/wsgi.py'.
+[Mon Mar 06 07:47:24.217300 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554] mod_wsgi (pid=3089): Failed to exec Python script file '/home/mikko/publictest/apate/wsgi.py'.
+[Mon Mar 06 07:47:24.217374 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554] mod_wsgi (pid=3089): Exception occurred processing WSGI script '/home/mikko/publictest/apate/wsgi.py'.
+[Mon Mar 06 07:47:24.217486 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554] Traceback (most recent call last):
+[Mon Mar 06 07:47:24.217562 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "/home/mikko/publictest/apate/wsgi.py", line 17, in <module>
+[Mon Mar 06 07:47:24.217568 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]     application = get_wsgi_application()
+[Mon Mar 06 07:47:24.217573 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "/home/mikko/publictest/env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+[Mon Mar 06 07:47:24.217575 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]     django.setup(set_prefix=False)
+[Mon Mar 06 07:47:24.217585 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "/home/mikko/publictest/env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+[Mon Mar 06 07:47:24.217587 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]     configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+[Mon Mar 06 07:47:24.217591 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "/home/mikko/publictest/env/lib/python3.9/site-packages/django/conf/__init__.py", line 92, in __getattr__
+[Mon Mar 06 07:47:24.217593 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]     self._setup(name)
+[Mon Mar 06 07:47:24.217596 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "/home/mikko/publictest/env/lib/python3.9/site-packages/django/conf/__init__.py", line 79, in _setup
+[Mon Mar 06 07:47:24.217598 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]     self._wrapped = Settings(settings_module)
+[Mon Mar 06 07:47:24.217601 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "/home/mikko/publictest/env/lib/python3.9/site-packages/django/conf/__init__.py", line 190, in __init__
+[Mon Mar 06 07:47:24.217603 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]     mod = importlib.import_module(self.SETTINGS_MODULE)
+[Mon Mar 06 07:47:24.217606 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "/usr/lib/python3.9/importlib/__init__.py", line 127, in import_module
+[Mon Mar 06 07:47:24.217608 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]     return _bootstrap._gcd_import(name[level:], package, level)
+[Mon Mar 06 07:47:24.217612 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+[Mon Mar 06 07:47:24.217619 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+[Mon Mar 06 07:47:24.217623 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "<frozen importlib._bootstrap>", line 972, in _find_and_load_unlocked
+[Mon Mar 06 07:47:24.217662 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+[Mon Mar 06 07:47:24.217671 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+[Mon Mar 06 07:47:24.217674 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+[Mon Mar 06 07:47:24.217678 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554]   File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+[Mon Mar 06 07:47:24.217688 2023] [wsgi:error] [pid 3089:tid 140143282267904] [remote 127.0.0.1:49554] ModuleNotFoundError: No module named 'apate'
+
 ```
+
+Siinä on virheilmoitusta. Ärsyttävintä tässä oli, että logissa näkyvät kaikki sijainnit ovat olemassa ja niissä on myös tiedostot joita mod_wsgi ei onnistu suorittamaan. Lyhyesti tiivistettynä: mod_wsgi ei pysty suorittamaan scriptiä /home/mikko/publictest/apate/wsgi.py, pitkä lista asiaan liittymättömältä näyttäviä virheilmoituksia, ja viimeiseksi virhe moduulin 'apate' puuttumisesta. 
+
+Verkkosivu näyttää tältä.
+
+![image](https://user-images.githubusercontent.com/122888695/223031066-ab3fc1d6-3cbf-4b56-8191-b231a2e3790d.png)
+![image](https://user-images.githubusercontent.com/122888695/223031105-f42c7af2-119e-4887-a585-0e649b206cf8.png)
+
+Itse tajusin sen kun tuijotin noita logeja tarpeeksi kauan ja kävin myös sivun .conf tiedostoa läpi, että olin ainakin laittanut yhtä kansiota liian syvälle tuon TDIR viittauksen, jonka korjattua ongelma katosi kuin tuhka tuuleen ja sivu lähti toimimaan. 
+
+## Lähteet
+
+https://terokarvinen.com
+
+https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat/#h12-vianselvitys
+
+https://modwsgi.readthedocs.io/en/develop/user-guides/checking-your-installation.html
+
+https://cwiki.apache.org/confluence/display/HTTPD/ClientDeniedByServerConfiguration

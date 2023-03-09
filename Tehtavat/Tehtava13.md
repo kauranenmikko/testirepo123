@@ -45,7 +45,7 @@ Ilmeiseseti onnistui.
 
 ### Ruby
 
-Ei mitään käsitystä Rubyn syntakstista. Käytetään ohjeita. ( https://terokarvinen.com/2018/hello-python3-bash-c-c-go-lua-ruby-java-programming-languages-on-ubuntu-18-04/ )
+Ei mitään käsitystä Rubyn syntaksista. Käytetään ohjeita. ( https://terokarvinen.com/2018/hello-python3-bash-c-c-go-lua-ruby-java-programming-languages-on-ubuntu-18-04/ )
 
 Käytiin vähän kaivamassa, ja ilmeisesti Ruby tulee valmiiksi Debianissa mukana. Neat. ( https://packages.debian.org/stable/ruby/ruby )
 

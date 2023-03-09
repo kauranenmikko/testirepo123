@@ -2,6 +2,7 @@ Testaukset tehtiin Windows 10 pöytäkoneelta VirtualBoxissa olevaan Debian 11.6
 
 Tehtävä: https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat/#h13-hello-world
 
+     a) Käännä "Hei maailma" kolmella kielellä.
 
 ## Käännä "Hei maailma" kolmella kielellä.
 

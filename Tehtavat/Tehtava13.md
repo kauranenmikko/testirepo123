@@ -80,9 +80,6 @@ Testataan
 ![image](https://user-images.githubusercontent.com/122888695/224009830-ec8e912c-f0b2-4641-903c-0c3841895e7e.png)
 
 
-### Tähän tulee Tehtävä B jos ehdin
-
-
 ## Lähteet
 
 https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat/#h13-hello-world

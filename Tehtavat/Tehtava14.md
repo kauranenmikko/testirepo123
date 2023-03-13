@@ -153,7 +153,7 @@ Testataan.
 
 Toimii. Luotiin huono versio manuaalisesta versionhallinnasta. Jes.
 
-Ongelmat tässä ratkaisussa on selvät: Vaatii tarpeeksi oikeuksia käyttää chmodia poistamaan oikeuksia, viittaa tällähetkellä käyttäjän mikko kotikansiion joka ei todellakaan ole hyvä idea. Joten muokataan vähän ja laitetaan jakoon, ja koitetaan toisella käyttäjällä.
+Ongelmat tässä ratkaisussa on selvät: Vaatii tarpeeksi oikeuksia käyttää chmodia poistamaan oikeuksia, viittaa tällähetkellä käyttäjän mikko kotikansiion joka ei todellakaan ole hyvä idea. Joten muokataan vähän ja laitetaan jakoon, ja koitetaan toisella käyttäjällä. Myös unohdettiin tuo mkdir komento, koska cp -r ei anna luoda polusta puuttuvia kansioita.
 
 ```
 #!/usr/bin/bash
@@ -163,12 +163,34 @@ cpwd=$(pwd)
 #now="$(date|awk '{print $2}')"
 backupl="backup$(date|awk '{print $2$3}')"
 #Luodaan kansio nimeltä backup päiväaika
-*user="$USER"*
+user="$USER"
 
+mkdir -p /home/$user/test
 cp -r $cpwd /home/$user/test/$backupl
 chmod -R ugo-w /home/$user/test/$backupl
 
-echo "Files from $cpwd backed up to $backupl"
+echo "Files from $cpwd backed up to /home/$user/test/$backupl"
 echo "Files also have had their write permissions removed. Have fun."
 
 ```
+
+Nyt se sentään viittaa aina käyttäjän omaan kotihakemistoon.
+
+Laitetaan muille käyttäjille saataville.
+
+![image](https://user-images.githubusercontent.com/122888695/224801024-e356301c-17fb-4f9f-b6a6-0982af8f7c52.png)
+
+Testataan toisella käyttäjällä.
+
+![image](https://user-images.githubusercontent.com/122888695/224804471-e678fbc5-c88d-4e2f-805b-0f7841d23722.png)
+
+![image](https://user-images.githubusercontent.com/122888695/224804692-4017e2b1-35cc-4da7-a593-483f6e31121b.png)
+
+Toimii.
+
+
+## Lähteet
+
+https://terokarvinen.com
+
+https://stackoverflow.com/questions/45986035/seconds-until-end-of-day-in-python

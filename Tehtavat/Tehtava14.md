@@ -1,6 +1,8 @@
-
+Testaukset tehtiin Windows 10 pöytäkoneelta VirtualBoxissa olevaan Debian 11.6 versioon.
 
 ## Tehtävä 
+
+https://terokarvinen.com/2023/linux-palvelimet-2023-alkukevat/#h14-uusi-komento
  
     a) Tee Linuxiin uusi komento Bashilla. Komennon tulee toimia kaikilla käyttäjillä, työhakemistosta riippumatta. Tee jotain muuta kuin "hei maailma".
     b) Tee Linuxiin uusi komento Pythonilla. Komennon tulee toimia kaikilla käyttäjillä, työhakemistosta riippumatta.

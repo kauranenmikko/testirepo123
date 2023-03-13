@@ -12,7 +12,7 @@ Tehdään uusi tiedosto.
 
     cd scriptest
     micro whereami
-```    
+`
 #!/usr/bin/bash
 
 now="$(date)"
@@ -23,4 +23,4 @@ login="$(last -1 -R $USER|grep 'mikko'|awk '{print $4,$5,$6}')"
 echo "Hello $user, today is $now"
 echo "You are located in $location"
 echo "Last login was at $login"
-```
+`

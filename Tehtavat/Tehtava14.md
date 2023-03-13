@@ -139,7 +139,7 @@ echo "Files also have had their write permissions removed. Have fun."
 
 Eli scripti kopioi nykyisen kansion ja kopioi sen sisällön sijaintiin /home/mikko/test/backup*pvmkellonaika*
 
-Annetaan sille oikeuksia
+Annetaan tiedostolle suoritusoikeus. 
 
     chmod ugo+x backup
     

@@ -49,11 +49,11 @@ Toimii, sitten toisella tunnuksella.
 
 ![image](https://user-images.githubusercontent.com/122888695/224754784-a0ecec06-f4fe-44aa-98f5-6c6acb55c70d.png)
 
-Näyttäisi toimivan, tuo login rivi varmaankin puuttuu, koska en käytännössä kirjautunut tunnukselle. Koitetaas uudelleen oikean kirjautumisen jälkeen.
+Näyttäisi toimivan, tuo login rivi varmaankin puuttuu, koska logi mistä tuo rivi haetaan taitaa sisältää vaan "oikeat" kirjautumiset linuxin käynnistyksen yhteydessä. Koitetaas uudelleen kirjautumisen jälkeen.
 
 ![image](https://user-images.githubusercontent.com/122888695/224755136-4c88f9cf-4eec-4fa4-9723-3be7f81581d0.png)
 
-Jep, näyttäisi toimivan jos käyttäjä on oikeasti kirjautunut järjestelmään.
+Jep, näyttäisi toimivan jos käyttäjälle on kirjauduttu. 
 
 ## Komento Pythonilla
 

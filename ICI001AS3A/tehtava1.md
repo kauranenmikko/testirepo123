@@ -186,5 +186,36 @@ Kosketaan kansiota
 ![image](https://user-images.githubusercontent.com/122888695/229476228-f40b2e68-5110-492d-a4ee-01883f64114c.png)
 
 
+Tehdään /srv/salt/hello kansio ja sinne init.sls tiedosto.
 
 
+	sudo mkdir -p /srv/salt/hello
+	sudoedit /srv/salt/hello/init.sls
+	
+	/tmp/infra-as-code:
+  	file.managed
+	
+Ajetaan muutokset koneille
+
+	sudo salt '*' state.apply hello
+
+![image](https://user-images.githubusercontent.com/122888695/229487893-71b229be-4e49-4d89-a002-c2f114b9f066.png)
+
+
+Tehdään top.sls tiedosto
+
+	sudoedit /srv/salt/top.sls
+	
+	base:
+	  '*':
+   	    - hello
+
+Testataan
+
+	sudo salt '*' state.apply
+
+![image](https://user-images.githubusercontent.com/122888695/229486987-0cc1fa6c-d7fd-4954-aa6b-3c7fc5ccf047.png)
+
+En ihan ymmärtänyt mitä tässä haettiin. Tällä siis käytännössä annetaan tuolle komennolle ylimääräinen argumentti, mutta se toimii muista poluista kyllä jos sen siihen manuaalisesti laittaa?
+
+Jätän myös vikan tehtävän tekemättä, koska en ihan täysin ymmärrä miten se tehtäisiin.

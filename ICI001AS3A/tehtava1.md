@@ -1,6 +1,12 @@
 ## h1 Suolaa
 
-Tehtävä: https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/#h1-suolaa
+#### Ympäristö: 
+
+Host: Windows 10 Pro 19044.2728, AMD Ryzen 7 5800X3D, 32GB RAM, Virtualbox 7.0.4 r154605
+
+Guest: Aikaisemmassa kurssissa tehty Debian GNU/Linux 11 (bullseye), 8GB RAM, 4 ydintä, 60GB kovalevytilaa, Nested VT-x/AMD-V nyt enabloitu.
+
+#### Tehtävä: https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/#h1-suolaa
 
 ### Tiivistykset
 
@@ -21,6 +27,18 @@ Tehtävä: https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/#h1-suo
 
 
 ### Asenna debian 11 vagrantilla
+
+Jouduttiin lisätä eri pakettirepo jotta saadaan toimiva versio virtualboxista. Ilmeisesti vagrant ei toimi vielä virtualbox 6.2 tai uudempien kanssa.
+
+https://wiki.debian.org/VirtualBox#Debian_10_.22Buster.22_and_Debian_11_.22Bullseye.22
+
+https://fasttrack.debian.net/
+
+Nämä ylemmät linkit eivät antaneet oikeata pakettia saataville, sieltä tuli virtualbox 7.0 versio, joka ei enää toiminut. Onneksi tekijöiltä löytyi ratkaisu.
+
+https://www.virtualbox.org/wiki/Linux_Downloads
+
+Tuolta oraclen omasta reposta sai haettua toimivan 6.1 version.
 
 Tässä jouduttiin vähän säätämään jotta saatiin virtuaalikoneessa asennettua virtuaalikoneita. (Ongelmat ei ihan tullut esiin tässä järjestyksessä, mutta lisätään nyt tähän jos jollakin olisi samanlainen ongelma)
 
@@ -95,4 +113,10 @@ end
 
 Suoritettiin komento `vagrant up`
 
-    
+Odotettiin ~3 minuuttia.
+
+![image](https://user-images.githubusercontent.com/122888695/229460447-af768bf8-dc61-4eec-84ce-070114334037.png)
+
+Koneet nousivat pystyyn ja ovat päällä.
+
+

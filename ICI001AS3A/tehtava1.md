@@ -161,3 +161,30 @@ Asennetaan koneille apache2. Suoritetaan komento kahdesti jotta nähdään erot.
 
 ![image](https://user-images.githubusercontent.com/122888695/229466796-250b7d46-58ed-4873-b36e-981c9ef04501.png)
 
+Käynnistetään apachet
+
+	sudo salt '*' state.single service.running apache2
+
+![image](https://user-images.githubusercontent.com/122888695/229474350-f7ad5575-33d6-4853-b28b-49c05d7f20ae.png)
+
+Testataan
+
+	curl -s 192.168.56.102|grep title
+	
+![image](https://user-images.githubusercontent.com/122888695/229474822-abffc0f0-262d-4c87-a6c2-90ec0ff15fea.png)
+
+Luodaan käyttäjä
+
+	sudo salt '*' state.single user.present mikkote1
+	
+![image](https://user-images.githubusercontent.com/122888695/229475666-0c826191-9146-48ab-b8f6-b78cbfc93618.png)
+
+Kosketaan kansiota
+
+	sudo salt '*' state.single cmd.run 'touch /tmp/tero' creates="/tmp/tero"
+	
+![image](https://user-images.githubusercontent.com/122888695/229476228-f40b2e68-5110-492d-a4ee-01883f64114c.png)
+
+
+
+

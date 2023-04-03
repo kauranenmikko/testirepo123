@@ -119,4 +119,45 @@ Odotettiin ~3 minuuttia.
 
 Koneet nousivat pystyyn ja ovat päällä.
 
+Kirjaudutaan tmaster konelle ja hyväksytään avaimet.
+
+	vagrant ssh tmaster
+	sudo salt-key -A
+	
+![image](https://user-images.githubusercontent.com/122888695/229463517-f4282a84-d060-4771-acb8-b62339b05268.png)
+
+Testataan yhteys pingillä.
+
+	sudo salt '*' test.ping
+	
+![image](https://user-images.githubusercontent.com/122888695/229463647-60320e2b-38f6-46be-8ca1-4998234e0733.png)
+
+Koitetaan komentoja.
+
+	sudo salt '*' cmd.run 'hostname -I'
+
+![image](https://user-images.githubusercontent.com/122888695/229463835-0959af35-aa57-421f-a815-b6dae0fb6861.png)
+
+
+	sudo salt '*' grains.item osfinger ipv4
+	
+![image](https://user-images.githubusercontent.com/122888695/229463955-a97d3f17-7b15-4433-96c0-1607d1ea38cc.png)
+
+### Idempotent
+
+Luodaan tiedosto koneille.
+
+	sudo salt '*' state.single file.managed '/tmp/see-you-at-terokarvinen-com'
+	
+![image](https://user-images.githubusercontent.com/122888695/229473241-852a444b-ce98-4c22-b1e8-c74b55602d92.png)
+
+
+Asennetaan koneille apache2. Suoritetaan komento kahdesti jotta nähdään erot.
+
+	sudo salt '*' state.single pkg.installed apache2
+	
+![image](https://user-images.githubusercontent.com/122888695/229467864-506f47ae-b319-46a7-9f44-e16c3366af1d.png)
+
+
+![image](https://user-images.githubusercontent.com/122888695/229466796-250b7d46-58ed-4873-b36e-981c9ef04501.png)
 

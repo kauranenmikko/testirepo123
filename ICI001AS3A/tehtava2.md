@@ -75,6 +75,38 @@ Toimii.
 
 ## Automatisoidaan tehty muutos
 
+Luodaan sshd.sls tiedosto joka voidaan puskea, joka sisältää tarvittavat tiedostopolut ja viittaukset.
+
+      cd /srv/salt
+      sudo micro sshd.sls
+      
+
+```
+openssh-server:
+ pkg.installed
+/etc/ssh/sshd_config:
+ file.managed:
+   - source: salt://sshd_config
+sshd:
+ service.running:
+   - watch:
+     - file: /etc/ssh/sshd_config
+```
+
+Kopioidaan masterin sshd tiedosto tänne, niin ei tarvitse tehdä uudelleen.
+
+      sudo cp /etc/ssh/sshd_config /srv/salt/
+
+Testataan.
+
+      sudo salt '*' state.apply sshd
+
+![image](https://user-images.githubusercontent.com/122888695/230596526-cd2203b5-53b7-4192-ae06-5153bb5c44cb.png)
+
+Näköjään sshd oli jo asennettu, ei sinäänsä yllätä. Muutos ilmeisesti config tiedostoon meni läpi.
+
+
+
 
 ![image](https://user-images.githubusercontent.com/122888695/230488478-fef2daf7-b172-4fe1-bd81-cf9c9185ec4f.png)
 

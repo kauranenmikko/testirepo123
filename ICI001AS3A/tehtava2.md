@@ -181,7 +181,41 @@ Toimii. Vaikka vieläkin avainongelma.
 
 Käytän hyvinpitkälti samaa pohjaa kuin ylempänä.
 
+      sudo micro apache2.sls
+
+      apache2:
+        pkg.installed
+      /var/www/html/index.html:
+        file.managed:
+          - source: salt://index.html
+      apache2.service:
+        service.running:
+          - watch:
+            - file: /var/www/html/index.html (oikeast tämä on täysin turha mutta pidin mukana koska miksi ei)
+
+      sudo micro index.html
+      
+![image](https://user-images.githubusercontent.com/122888695/230603192-09c9a781-aaea-4441-8ea0-833f993f970f.png)
 
 
-![image](https://user-images.githubusercontent.com/122888695/230488478-fef2daf7-b172-4fe1-bd81-cf9c9185ec4f.png)
+      sudo salt '*' state.apply apache2
+     
+Tein tämän pikku erissä muutaman typon takia, mutta tässä lopputulos.
 
+![image](https://user-images.githubusercontent.com/122888695/230603249-55737f41-ee8e-4476-84c1-cc6fcf6f9fbb.png)
+
+Testataan vaihtuiko sivu.
+
+      curl -s 192.168.56.102
+      
+![image](https://user-images.githubusercontent.com/122888695/230603316-ecc42953-24cb-4425-a9c5-8fe36f4bbafb.png)
+
+Surullisesti näyttäisi siltä, että en voi testata tuota itse verkkosivua käyttäjän näkökulmasta. Johtunee jostakin virtuaaliverkko ongelmasta. Ei tavallaan yllätä. (Omalla koneella on siis Virtualbox, jossa on Vagrant ympäristö, jossa on virtualisoitu koneet joilla on nyt verkkosivu)
+
+Lähteet:
+
+https://terokarvinen.com/2018/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/?fromSearch=salt%20ssh
+
+https://terokarvinen.com/2023/salt-vagrant/ 
+
+https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/#h2-demonit

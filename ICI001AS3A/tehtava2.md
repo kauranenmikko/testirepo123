@@ -183,6 +183,7 @@ Käytän hyvinpitkälti samaa pohjaa kuin ylempänä.
 
       sudo micro apache2.sls
 
+
       apache2:
         pkg.installed
       /var/www/html/index.html:
@@ -192,6 +193,7 @@ Käytän hyvinpitkälti samaa pohjaa kuin ylempänä.
         service.running:
           - watch:
             - file: /var/www/html/index.html (oikeast tämä on täysin turha mutta pidin mukana koska miksi ei)
+
 
       sudo micro index.html
       

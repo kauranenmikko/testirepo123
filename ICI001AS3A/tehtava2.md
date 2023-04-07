@@ -210,7 +210,7 @@ Testataan vaihtuiko sivu.
       
 ![image](https://user-images.githubusercontent.com/122888695/230603316-ecc42953-24cb-4425-a9c5-8fe36f4bbafb.png)
 
-Surullisesti näyttäisi siltä, että en voi testata tuota itse verkkosivua käyttäjän näkökulmasta. Johtunee jostakin virtuaaliverkko ongelmasta. Ei tavallaan yllätä. (Omalla koneella on siis Virtualbox, jossa on Vagrant ympäristö, jossa on virtualisoitu koneet joilla on nyt verkkosivu)
+Surullisesti näyttäisi siltä, että en voi testata tuota itse verkkosivua käyttäjän näkökulmasta. Johtunee jostakin virtuaaliverkko ongelmasta. Ei tavallaan yllätä. (Omalla koneella on siis Virtualbox, jossa on Vagrant ympäristö, jossa on virtualisoitu koneet joilla on nyt apache2 ja verkkosivu)
 
 Lähteet:
 

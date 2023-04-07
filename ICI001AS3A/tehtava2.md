@@ -116,5 +116,72 @@ Testataan.
 
 Toimii, tosin edelleen tulee avaimen verifikaation kanssa ongelmia. Pitänee jossakin vaiheessa tutkia tuo. 
 
+
+## Ylimääräinen muutos sshd_config tiedostoon.
+
+Testataan ensin ilman muutoksia.
+
+Aikaisempi käynnistysaika ylemmästä tehtävästä demonille t001 koneella pitäisi olla `10:48:08.507246`.
+
+Katsotaan mikä se oikeasti on. 
+
+      sudo salt '*' cmd.run 'systemctl status sshd'
+      
+![image](https://user-images.githubusercontent.com/122888695/230598031-a493b104-688c-4aff-829e-21127ec581a2.png)
+
+Eli kummallakin koneella `2023-04-07 10:48:08`
+
+Ajetaan sshd.sls uudelleen ja katsotaan muuttuuko mikään.
+
+      sudo salt '*' state.apply sshd
+
+![image](https://user-images.githubusercontent.com/122888695/230598202-6e5d3fee-7c85-4577-8865-a27d6f01dd04.png)
+
+Muutoksia ei näy. Tarkistetaan taas koneilta itse. 
+
+      sudo salt '*' cmd.run 'systemctl status sshd'
+      
+![image](https://user-images.githubusercontent.com/122888695/230598328-432596a9-3858-4106-8a72-c91f56ce5d2b.png)
+
+Demoni siis ei käynnistynyt uudelleen jos muutoksia ei puskettu.
+
+Nyt tehdään muutos, lisätään uusi portti tiedostoon.
+
+      sudo micro sshd_config
+      
+Lisätään rivi `Port 7777`
+      
+Pusketaan muutos.
+
+      sudo salt '*' state.apply sshd
+      
+![image](https://user-images.githubusercontent.com/122888695/230598607-fbb51335-41b1-48e0-ab26-2316a17b487b.png)
+
+Muutos meni läpi.
+
+![image](https://user-images.githubusercontent.com/122888695/230598635-eeda7aae-c0a9-4172-bf9e-91cf54768427.png)
+
+Tämän mukaan service myös käynnistyi uudelleen. Tarkistetaan se vielä.
+
+      sudo salt '*' cmd.run 'systemctl status sshd'
+
+![image](https://user-images.githubusercontent.com/122888695/230598731-f1627c07-d2d9-43cf-8bbc-3a7509f0bd33.png)
+
+Jep.
+
+Sitten koitetaan lisättyä porttia vielä.
+
+      ssh -p 7777 192.168.56.100
+      
+![image](https://user-images.githubusercontent.com/122888695/230598904-a75158d0-7d0b-4e79-8327-4faed0fc4ca6.png)
+
+Toimii. Vaikka vieläkin avainongelma.
+
+## Säädetään Apachea nopeasti
+
+Käytän hyvinpitkälti samaa pohjaa kuin ylempänä.
+
+
+
 ![image](https://user-images.githubusercontent.com/122888695/230488478-fef2daf7-b172-4fe1-bd81-cf9c9185ec4f.png)
 

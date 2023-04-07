@@ -105,8 +105,16 @@ Testataan.
 
 Näköjään sshd oli jo asennettu, ei sinäänsä yllätä. Muutos ilmeisesti config tiedostoon meni läpi.
 
+Tuosta service.running päätellen näyttäisi, että demoni käynnistyi myös uudelleen.
 
+Testataan.
 
+      sudo salt '*' cmd.run 'hostname -I'  # Hain IPt
+      ssh -p 8888 192.168.56.100
+
+![image](https://user-images.githubusercontent.com/122888695/230597031-f27016ad-2154-4f97-bf61-c7f937189fc0.png)
+
+Toimii, tosin edelleen tulee avaimen verifikaation kanssa ongelmia. Pitänee jossakin vaiheessa tutkia tuo. 
 
 ![image](https://user-images.githubusercontent.com/122888695/230488478-fef2daf7-b172-4fe1-bd81-cf9c9185ec4f.png)
 

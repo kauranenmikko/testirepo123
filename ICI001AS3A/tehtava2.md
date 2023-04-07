@@ -44,6 +44,13 @@ Ei välitetä siitä, että tuo avaimen todennus jostakin syystä epäonnistui. 
 
 ### Lisätään portti.
 
+Koitetaan yhteyttä ennen muutosta.
+
+      ssh -p 8888 localhost
+      
+![image](https://user-images.githubusercontent.com/122888695/230592943-b18c19e4-5fc7-41a9-81d5-63c89a62acaf.png)
+
+
 Asennetaan välissä nopeasti micro koska parempi editori
 
     sudo apt-get install micro
@@ -65,6 +72,8 @@ Koitetaan
 ![image](https://user-images.githubusercontent.com/122888695/230592402-4a65cacd-84fa-4634-ae72-19a9328ae306.png)
 
 Toimii.
+
+## Automatisoidaan tehty muutos
 
 
 ![image](https://user-images.githubusercontent.com/122888695/230488478-fef2daf7-b172-4fe1-bd81-cf9c9185ec4f.png)

@@ -187,14 +187,14 @@ sudo micro apache2.sls
 
 ```
 apache2:
-        pkg.installed
-      /var/www/html/index.html:
-        file.managed:
-          - source: salt://index.html
-      apache2.service:
-        service.running:
-          - watch:
-            - file: /var/www/html/index.html (oikeast tämä on täysin turha mutta pidin mukana koska miksi ei)
+  pkg.installed
+    /var/www/html/index.html:
+      file.managed:
+        - source: salt://index.html
+apache2.service:
+  service.running:
+    - watch:
+      - file: /var/www/html/index.html (oikeast tämä on täysin turha mutta pidin mukana koska miksi ei)
 ```
 
       sudo micro index.html

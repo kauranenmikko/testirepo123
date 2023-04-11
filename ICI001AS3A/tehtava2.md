@@ -19,7 +19,7 @@ Guest: Aikaisemmassa kurssissa tehty Debian GNU/Linux 11 (bullseye), 8GB RAM, 4 
 Poistetaan SSH ja tapetaan prosessi
 
       sudo apt-get purge ssh
-      sudo systemctl skill ssh
+      sudo systemctl kill ssh
       
 ![image](https://user-images.githubusercontent.com/122888695/230590032-b21cf50c-95e9-4522-b98e-82f7216fee7a.png)
 

@@ -1,6 +1,12 @@
 ## h3 Git
 
-Tehtävänanto https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/
+#### Ympäristö: 
+
+Host: Windows 10 Pro 19044.2728, AMD Ryzen 7 5800X3D, 32GB RAM, Virtualbox 7.0.4 r154605
+
+Guest: Aikaisemmassa kurssissa tehty Debian GNU/Linux 11 (bullseye), 8GB RAM, 4 ydintä, 60GB kovalevytilaa, Nested VT-x/AMD-V nyt enabloitu.
+
+#### Tehtävä: https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/
 
 ## a/b) Online. (Uusi varasto githubiin ja tiedostojen lataaminen)
 
@@ -32,7 +38,7 @@ Katsotaan reposta.
 
 Tuli perille.
 
-c) Doh! (Tee tyhmä muutos gittiin, älä tee commit:tia.)
+## c) Doh! (Tee tyhmä muutos gittiin, älä tee commit:tia.)
 
 Lisätään README.md tiedostoon roskaa.
 
@@ -47,7 +53,7 @@ Poistetaan muutos `git reset --hard`
 ![image](https://user-images.githubusercontent.com/122888695/232335585-c342f314-2edd-443f-8508-347ee22d4205.png)
 ![image](https://user-images.githubusercontent.com/122888695/232335592-3545365b-a300-4da0-a9db-4fdb66f9e837.png)
 
-d) Tukki 
+## d) Tukki 
 
 Tutkitaan patch logia.
 

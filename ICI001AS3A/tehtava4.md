@@ -66,6 +66,8 @@ Oikeudet ja testataan
     chmod ugo+rx pythontest
     ./pythontest
     
+![image](https://user-images.githubusercontent.com/122888695/234276698-ae345835-920d-4fc5-8f5e-0653502c7712.png)
+
 Siirretään /usr/local/bin ja testaan toisella käyttäjällä.
 ```
 sudo cp pythontest /usr/local/bin
@@ -77,3 +79,37 @@ su mikkote3
 pythontest
 ```
 ![image](https://user-images.githubusercontent.com/122888695/234276222-bbf034ae-a063-458e-a950-c696210f7fb2.png)
+
+
+### c) Automatisoi näiden skriptien asennus orjille Saltilla.
+
+Koska tein ylemmät vagrant ympäristön ulkopuolella, käytin samoja komentoja tekemään ne vagrant tmaster koneelle.
+
+Luodaan scriptien kopiointi .sls tiedosto.
+
+    micro scriptcopy.sls
+
+```
+/usr/local/bin/shineboi:
+  file.managed:
+    - source: "salt://shineboi"
+    - mode: "0755"
+    
+/usr/local/bin/pythontest:
+  file.managed:
+    - source: "salt://pythontest"
+    - mode: "0755"
+    
+```
+
+Ajetaan komento orjille
+
+    sudo salt '*' state.apply scriptcopy
+    
+Testataan
+
+    sudo salt '*' cmd.run shineboi
+    sudo salt '*' cmd.run pythontest
+
+![image](https://user-images.githubusercontent.com/122888695/234285482-71fbb724-6384-49b8-a54d-96a84354cba6.png)
+

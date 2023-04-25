@@ -113,3 +113,4 @@ Testataan
 
 ![image](https://user-images.githubusercontent.com/122888695/234285482-71fbb724-6384-49b8-a54d-96a84354cba6.png)
 
+### d) Asenna jokin yhden binäärin ohjelma Saltilla orjille.

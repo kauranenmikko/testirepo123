@@ -67,13 +67,13 @@ Oikeudet ja testataan
     ./pythontest
     
 Siirretään /usr/local/bin ja testaan toisella käyttäjällä.
-
+```
     sudo cp pythontest /usr/local/bin
-
-
+```
+```
     su mikkote3
-    
-    
+```    
+```    
     pythontest
-
+```
 ![image](https://user-images.githubusercontent.com/122888695/234276222-bbf034ae-a063-458e-a950-c696210f7fb2.png)

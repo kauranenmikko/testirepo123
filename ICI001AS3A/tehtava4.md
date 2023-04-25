@@ -168,8 +168,10 @@ Laitetaan se vielä kaikille koneille.
 
     sudo salt '*' state.apply pushtest
     
-Testataan vielä t002 koneelta. (samat asekeleet kun yllä)
+Testataan tmasterilta cmd.run komenolla.
 
-![image](https://user-images.githubusercontent.com/122888695/234317107-d04d1a33-d07e-4d17-bbf3-3551caa3bd57.png)
+    sudo salt '*' cmd.run "micro --version"
+
+![image](https://user-images.githubusercontent.com/122888695/234321294-ac785f66-8096-41a8-876a-372ef9399c59.png)
 
 Toimii.

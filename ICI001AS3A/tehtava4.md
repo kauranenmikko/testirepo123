@@ -60,3 +60,20 @@ Sama juttu, python scriptille.
 
 print("Tämä on python scripti")
 ```
+
+Oikeudet ja testataan
+
+    chmod ugo+rx pythontest
+    ./pythontest
+    
+Siirretään /usr/local/bin ja testaan toisella käyttäjällä.
+
+    sudo cp pythontest /usr/local/bin
+
+
+    su mikkote3
+    
+    
+    pythontest
+
+![image](https://user-images.githubusercontent.com/122888695/234276222-bbf034ae-a063-458e-a950-c696210f7fb2.png)

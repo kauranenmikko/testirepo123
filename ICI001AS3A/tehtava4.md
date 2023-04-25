@@ -16,9 +16,9 @@ Tehdään shell scripti ja laitetaan se käyttäjille saataville.
     
 Tiedoston sisältö    
 ```
-    #!/usr/bin/bash
+#!/usr/bin/bash
 
-    echo "shine"
+echo "shine"
 ```
 Annetaan scriptille oikeudet
 
@@ -68,12 +68,12 @@ Oikeudet ja testataan
     
 Siirretään /usr/local/bin ja testaan toisella käyttäjällä.
 ```
-    sudo cp pythontest /usr/local/bin
+sudo cp pythontest /usr/local/bin
 ```
 ```
-    su mikkote3
+su mikkote3
 ```    
 ```    
-    pythontest
+pythontest
 ```
 ![image](https://user-images.githubusercontent.com/122888695/234276222-bbf034ae-a063-458e-a950-c696210f7fb2.png)

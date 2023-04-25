@@ -114,3 +114,52 @@ Testataan
 ![image](https://user-images.githubusercontent.com/122888695/234285482-71fbb724-6384-49b8-a54d-96a84354cba6.png)
 
 ### d) Asenna jokin yhden binäärin ohjelma Saltilla orjille.
+
+Hmm, lasketaanko tämä asentamiseksi?
+
+Olin asentanut joku aika sitten jo tmaster koneelle micron.
+
+Kopioin micron binäärin /srv/salt kansioon.
+
+    cd /usr/bin
+    sudo cp micro /srv/salt
+
+Siirryin /srv/salt ja tein siirtotiedoston.
+
+    cd /srv/salt
+    micro pushtest.sls
+    
+Lisäsin sinne käytännössä samat tiedot mitä ylempänäkin.
+
+```
+/usr/local/bin/micro:
+  file.managed:
+    - source: "salt://micro"
+    - mode: "0755"
+```
+
+Testasin t001 koneella.
+
+    sudo salt t001 state.apply pushtest
+
+![image](https://user-images.githubusercontent.com/122888695/234315456-8d084443-0e72-40ab-8cd6-578263a7573e.png)
+
+Tiedosto ainakin liikkui.
+
+Hyppäsin t001 koneelle toisessa terminaalissa.
+
+    vagrant ssh t001
+    
+Koitin poistaa micron jos olin sen aikaisemmin jostakin syystä asentanut.
+
+    sudo apt-get purge micro
+    
+![image](https://user-images.githubusercontent.com/122888695/234315290-858ac921-1fd8-440f-9ec6-857f0d61a024.png)
+
+Koitin katsoa mikä micro versio koneelta kuitenkin löytyy
+
+    micro --version
+    
+Se myös aukeaa ihan oikein kutsumalla pelkällä nimellä `micro`.
+
+![image](https://user-images.githubusercontent.com/122888695/234315873-e2615de7-116e-4c46-a3e6-3ef4ba5a6962.png)

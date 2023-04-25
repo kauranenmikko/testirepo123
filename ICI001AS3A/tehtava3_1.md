@@ -20,7 +20,7 @@ Kloonataan repo itselle.
 
 Linuxissa 
 
-    git clonegit@github.com:kauranenmikko/supernovasummer.git
+    git clone git@github.com:kauranenmikko/supernovasummer.git
 
 ![image](https://user-images.githubusercontent.com/122888695/232332761-2f658e43-ad20-4837-9721-d3c5507907b0.png)
 

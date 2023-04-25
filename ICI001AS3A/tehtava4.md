@@ -163,3 +163,13 @@ Koitin katsoa mikä micro versio koneelta kuitenkin löytyy
 Se myös aukeaa ihan oikein kutsumalla pelkällä nimellä `micro`.
 
 ![image](https://user-images.githubusercontent.com/122888695/234315873-e2615de7-116e-4c46-a3e6-3ef4ba5a6962.png)
+
+Laitetaan se vielä kaikille koneille.
+
+    sudo salt '*' state.apply pushtest
+    
+Testataan vielä t002 koneelta. (samat asekeleet kun yllä)
+
+![image](https://user-images.githubusercontent.com/122888695/234317107-d04d1a33-d07e-4d17-bbf3-3551caa3bd57.png)
+
+Toimii.

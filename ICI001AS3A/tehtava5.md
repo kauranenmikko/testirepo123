@@ -119,3 +119,4 @@ Poistetaan asennus.
     
 ![image](https://user-images.githubusercontent.com/122888695/235448830-19c161f5-8d17-41e1-8a89-e266cbe6af46.png)
 
+![image](https://user-images.githubusercontent.com/122888695/235449431-4081e754-d230-434b-b79a-d115fc9b5395.png)

@@ -5,7 +5,7 @@
 Host: Windows 10 Pro 19044.2846, AMD Ryzen 7 5800X3D, 32GB RAM, Virtualbox 7.0.4 r154605
 
 Guest: Aikaisemmassa kurssissa tehty Debian GNU/Linux 11 (bullseye), 8GB RAM, 4 ydintä, 60GB kovalevytilaa, Nested VT-x/AMD-V enabloitu.
-Tehtävä: https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/#h4-komennus
+Tehtävä: https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/#h5-vaihtoehdot
 
 ## x) Lue ja tiivistä
 
@@ -119,4 +119,54 @@ Poistetaan asennus.
     
 ![image](https://user-images.githubusercontent.com/122888695/235448830-19c161f5-8d17-41e1-8a89-e266cbe6af46.png)
 
+
+    ls "C:\Program Files (x86)\gedit"
+    
 ![image](https://user-images.githubusercontent.com/122888695/235449431-4081e754-d230-434b-b79a-d115fc9b5395.png)
+
+Näyttäisi aika poistuneelta.
+
+## c) Hei ikkuna!
+
+Meni vähän kauan tajuta mitenkä tämä tapahtuu Windowsin rakenteella, mutta kuitenkin.
+
+Luodaan kansio .sls tiedostoa varten.
+
+    mkdir C:\ProgramData\Salt Project\Salt\srv\salt\test
+    
+Luodaan kansioon init.sls tiedosto. Sisältö alla.
+
+```
+C:\Program Files\Salt Project\Salt\test.txt:
+  file.managed
+```
+
+Testataan. 
+
+    salt-call --local state.apply test
+    
+![image](https://user-images.githubusercontent.com/122888695/235456485-5dca8325-6541-4d54-b64d-125ba7cee509.png)
+
+Näytti toimivan.
+
+Mennään katsomaan onko tiedosto paikalla.
+
+    ls "C:\Program Files\Salt Project\Salt\test.txt"
+
+![image](https://user-images.githubusercontent.com/122888695/235456649-554abf90-de4b-4219-aa86-1a918fc171ab.png)
+
+![image](https://user-images.githubusercontent.com/122888695/235456715-f41531b2-4670-4953-b6a9-521580bb6353.png)
+
+Näyttäisi löytyvän.
+
+## Lähteet
+
+https://docs.saltproject.io/en/latest/ref/configuration/minion.html#std-conf_minion-winrepo_dir
+
+https://docs.saltproject.io/salt/install-guide/en/latest/topics/downloads.html
+
+https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/#h5-vaihtoehdot
+
+https://terokarvinen.com/2018/control-windows-with-salt/
+
+https://johanlindell.fi/palvelintenhallinta#h6

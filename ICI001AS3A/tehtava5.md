@@ -7,6 +7,8 @@ Host: Windows 10 Pro 19044.2846, AMD Ryzen 7 5800X3D, 32GB RAM, Virtualbox 7.0.4
 Guest: Aikaisemmassa kurssissa tehty Debian GNU/Linux 11 (bullseye), 8GB RAM, 4 ydintä, 60GB kovalevytilaa, Nested VT-x/AMD-V enabloitu.
 Tehtävä: https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/#h5-vaihtoehdot
 
+Tehtävä tehtiin täysin Windowsilla.
+
 ## x) Lue ja tiivistä
 
 ### Windows with salt

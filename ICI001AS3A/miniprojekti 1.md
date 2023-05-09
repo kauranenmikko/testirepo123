@@ -16,7 +16,8 @@
     
     
 ### Download-nappi, lähdekoodi
-    
+
+https://github.com/kauranenmikko/PCSetupProject
     
 ### Miten asennan / otan tämän käyttöön
     

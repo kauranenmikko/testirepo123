@@ -24,11 +24,3 @@ https://github.com/kauranenmikko/PCSetupProject
     
 ### Viittaus tai linkki kurssiin ja kaikkiin muihinkin käytettyihin lähteisiin
 
-```
-Saltilla
-wine (linux)
-Steam
-GOG? (ei ole linux versiota, _pitäisi toimia_ winen kautta, onnistuuko asennuksen automatisointi?)
-Blender
-Windows GPO/rekisteri korjaukset? (saattaa olla ongelma koska ei ole saatavilla kaikissa windows versioissa?
-```

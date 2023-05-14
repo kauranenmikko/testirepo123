@@ -40,5 +40,7 @@ https://docs.saltproject.io/en/latest/ref/states/all/salt.states.reg.html
 
 https://learn.microsoft.com/en-us/windows/package-manager/winget/
 
+https://docs.saltproject.io/en/latest/ref/states/all/salt.states.win_lgpo.html
+
 dpkg man page
 

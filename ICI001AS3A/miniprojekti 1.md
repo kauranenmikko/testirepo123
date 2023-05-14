@@ -24,3 +24,15 @@ https://github.com/kauranenmikko/PCSetupProject
     
 ### Viittaus tai linkki kurssiin ja kaikkiin muihinkin käytettyihin lähteisiin
 
+https://terokarvinen.com/2018/configure-windows-and-linux-with-salt-jinja-if-else-and-grains/
+
+https://stackoverflow.com/questions/41479482/how-do-i-allow-a-salt-stack-formula-to-run-on-only-certain-operating-system-vers
+
+https://docs.saltproject.io/en/latest/ref/states/all/salt.states.pkg.html
+
+https://wiki.debian.org/Steam
+
+https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/
+
+dpkg man page
+

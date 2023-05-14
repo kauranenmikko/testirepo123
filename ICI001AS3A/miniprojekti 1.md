@@ -28,11 +28,17 @@ https://terokarvinen.com/2018/configure-windows-and-linux-with-salt-jinja-if-els
 
 https://stackoverflow.com/questions/41479482/how-do-i-allow-a-salt-stack-formula-to-run-on-only-certain-operating-system-vers
 
+https://docs.saltproject.io/en/latest/topics/development/conventions/formulas.html#abstracting-static-defaults-into-a-lookup-table
+
 https://docs.saltproject.io/en/latest/ref/states/all/salt.states.pkg.html
 
 https://wiki.debian.org/Steam
 
 https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/
+
+https://docs.saltproject.io/en/latest/ref/states/all/salt.states.reg.html
+
+https://learn.microsoft.com/en-us/windows/package-manager/winget/
 
 dpkg man page
 

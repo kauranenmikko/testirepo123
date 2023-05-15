@@ -42,5 +42,7 @@ https://learn.microsoft.com/en-us/windows/package-manager/winget/
 
 https://docs.saltproject.io/en/latest/ref/states/all/salt.states.win_lgpo.html
 
+https://winhelp2002.mvps.org/hosts.txt
+
 dpkg man page
 

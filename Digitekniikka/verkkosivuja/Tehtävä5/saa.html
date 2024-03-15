@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<html lang="fi"></html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+	<title>Sään haku</title>
+</head>
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="saa.html" class="active">Sää</a>
+        <a href="junat.html">Junat</a>
+    </div>
+    <div id="vastaus"></div>
+    <script>
+        fetch('http://api.openweathermap.org/data/2.5/weather?lang=fi&q=helsinki&units=metric&APPID=665ecd56dfc08dbb50feb8b8f5034e28')
+        // Muunnetaan vastaus JSON muotoon
+        .then(function (response) {
+            return response.json();
+        })
+        // Käsitellään muunnettu (eli JSON muotoinen) vastaus
+        .then(function (responseJson) {
+        // kutsutaan saa-funktiota
+            saa(responseJson);
+        })
+        .catch(function (error) {
+            document.getElementById("vastaus").innerHTML =
+        "<p>Tietoa ei pystytä hakemaan</p>";
+        })
+        function saa(data){
+            var teksti = "";
+            var weather = ""; 
+            var temp = "";
+            var windspeed = "";
+            var kuva = 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
+            teksti = "<h1>" + data.name + "</h1>";
+            weather = data.weather[0].description;
+            temp = "<p> Lämpötila: " + data.main.temp + "C</p>";
+            windspeed = "<p> Tuulen nopeus: " + data.wind.speed + "m/s</p>";
+            document.getElementById("vastaus").innerHTML = teksti + weather + temp + windspeed + "<p><img src='" + kuva + "' alt='kuva' ></p>";
+        }
+    </script>
+</body>
+</html>

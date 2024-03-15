@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<html lang="fi">
+
+<head>
+    <title>Asia</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mikko Kauranen">
+    <meta name="keywords" content="laitatähänjotakin">
+    <meta name="description" content="verkkosivu asiasta">
+	<link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100&display=swap" rel="stylesheet">
+    
+    <script>
+        function changePage(id) {
+            var p1 = document.getElementById("sivu1");
+            var p2 = document.getElementById("sivu2");
+            if(id=="sivu1"){
+                p1.style.visibility = "visible";
+                p2.style.visibility = "hidden";
+                p1.style.height = "auto";
+                p2.style.height ="0";
+            }
+            else if(id=="sivu2"){
+                p1.style.visibility = "hidden";
+                p2.style.visibility = "visible";
+                p1.style.height = "0";
+                p2.style.height ="auto";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="kontti">
+        <header>
+            <h1>Asia</h1>
+            <div id="navi">
+                <ul>
+                    <li><a href="#"onclick="changePage('sivu1');">Asia</a></li>
+                    <li><a href="#"onclick="changePage('sivu2');">Kuva Asiasta</a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <section id="staticpart">
+                <h2>Tähän tulee tekstiä</h2>
+                <div>
+                    <p>Tässä on teksiä asiasta <br>
+                        ¯\_(ツ)_/¯ <br>
+                        En keksinyt mitään järkevää materiaalia jota lisätä tänne.<br>
+                        Alla oleva sisältö vaihtuu yllä olevista linkeistä.
+                    </p>
+                </div>
+            </section>
+            <section id="materiaali">
+                <div id="sivu1">
+                    <h1>Bacon ipsum</h1>
+                    <p>Bacon ipsum dolor amet hamburger shoulder meatloaf ham hock. Ground round spare ribs landjaeger fatback, kielbasa tenderloin corned beef pastrami burgdoggen strip steak andouille shankle. 
+                        Tongue chicken frankfurter, ground round burgdoggen rump jerky beef drumstick. Ground round shank bresaola pork chop chislic drumstick turducken t-bone.
+                        Landjaeger jerky boudin beef shoulder pastrami short loin andouille cupim meatloaf biltong fatback. Prosciutto alcatra ham spare ribs picanha flank cupim. 
+                        Short loin sirloin leberkas ball tip tail salami ribeye alcatra ground round pig burgdoggen chuck. Bresaola chislic pork cupim tongue filet mignon swine bacon biltong sirloin pork belly.
+                        <br>
+                        <a href="https://baconipsum.com/">Lähde</a>
+                        <!-- Teksti rivitetty jotta sitä on helpompi ihmisen käsitellä -->
+                    </p>
+                </div>
+
+                <img src="./pexels-rudy-kirchner-831056.jpg" alt="image of Iceland">
+                <p>Kuva Islannista. Lähde: Photo by Rudy Kirchner from Pexels: https://www.pexels.com/photo/green-field-near-mountain-during-daytime-831056/ </p>
+                <!-- Kuva yllä koska ohjeiden mukaan "Kuva Islannista-sivujen välille."
+                    Sivu 2 materiaali alla -->
+
+                <div id="sivu2">
+                    <h1>Kuva Islannista</h1>
+                    <div id="ekakuva">
+                        <h2>Kuvan rajaus</h2>
+                        <canvas id="kuva" width="300" height="297"></canvas>
+                        <script>
+                            var canvas = document.getElementById('kuva');
+                            var context  = canvas.getContext('2d');
+                            var imageObj = new Image();
+                            imageObj.src = './pexels-rudy-kirchner-831056.jpg';
+                            imageObj.onload = function(){
+                                var sourceX = 2590;
+                                var sourceY = 1230;
+                                var sourceWidth = 1280;
+                                var sourceHeight = 782;
+                                var destWidth = sourceWidth;
+                                var destHeight = sourceHeight;
+                                var destX = (canvas.width / 2 - destWidth / 2);
+                                var destY = (canvas.height / 2 - destHeight / 2);
+                                context.drawImage(imageObj,sourceX,sourceY,sourceWidth,sourceHeight,destX,destY,destWidth,destHeight);
+                            };
+                        </script>
+                    </div>
+
+                    <div id="tokakuva">
+                        <h2>Kuvan rajaus&mirror</h2>
+                        <canvas id="kuva2" width="300" height="297"></canvas>
+                        <script>
+                            var canvas2 = document.getElementById('kuva2');
+                            var context2  = canvas2.getContext('2d');
+                            var imageObj2 = new Image();
+                            imageObj2.src = './pexels-rudy-kirchner-831056.jpg';
+                            imageObj2.onload = function(){
+                                context2.scale(-1,1);
+                                var sourceX = 2590;
+                                var sourceY = 1230;
+                                var sourceWidth = 1280;
+                                var sourceHeight = 782;
+                                var destWidth = sourceWidth;
+                                var destHeight = sourceHeight;
+                                var destX = (canvas.width / 2 - destWidth / 2);
+                                var destY = (canvas.height / 2 - destHeight / 2);
+                                context2.drawImage(imageObj2,sourceX,sourceY,sourceWidth,sourceHeight,destX,destY,destWidth,destHeight);
+                            };
+                        </script>
+                    </div> 
+
+                    <div id="kolmaskuva">
+                        <h2>Kuvan skaalaus ja rajaus</h2>
+                        <canvas id="kuva3" width="300" height="297"></canvas>
+                        <script>
+                            var canvas3 = document.getElementById('kuva3');
+                            var context3  = canvas3.getContext('2d');
+                            var imageObj3 = new Image();
+                            imageObj3.src = './pexels-rudy-kirchner-831056.jpg';
+                            imageObj3.onload = function(){
+                                context3.scale(0.3,0.3);
+                                var sourceX = 2590;
+                                var sourceY = 1230;
+                                var sourceWidth = 1280;
+                                var sourceHeight = 782;
+                                var destWidth = sourceWidth;
+                                var destHeight = sourceHeight;
+                                var destX = (canvas.width / 2 - destWidth / 2);
+                                var destY = (canvas.height / 2 - destHeight / 2);
+                                context3.drawImage(imageObj3,sourceX,sourceY,sourceWidth,sourceHeight,destX,destY,destWidth,destHeight);
+                            };
+                        </script>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

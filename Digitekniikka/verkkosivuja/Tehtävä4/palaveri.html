@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<html lang="fi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+	<title>Palaverin haku</title>
+</head>
+<body>
+    <body>
+        <div class="topnav" id="myTopnav">
+            <a href="etusivu.html" class="active">Etusivu</a>
+            <a href="palaveri.html">Palaveri</a>
+            <a href="digicafe.html">Digi Cafe</a>
+            <a href="tyot.html">Työpaikat</a>
+      </div>
+     <div id="palaveri"></div>
+</body>
+<script>
+    fetch('https://run.mocky.io/v3/11fecb0b-89a8-4514-962e-52dc8cc2cbb2') 
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (responseJson) {
+        haku(responseJson);
+        function haku(data){
+            var tapahtuma = "";
+            var osallistujalkm = "";
+            var osallistujat = ""; 
+            var paikka = "";
+            var alkuaika = "";
+            var loppuaika = "";
+            // otsikkotiedon hakeminen ja sijoittaminen h1-elementtiin
+            tapahtuma = "<h1>" + data.tapahtuma + "</h1>";
+            osallistujalkm =  "<p> Osallistujien määrä: " + data.osallistujalkm + "</p>";
+            paikka = "<p>Sijainti: " + data.paikka + "</p>";
+            alkuaika = "<p>Alkuaika: " + data.alkuaika + "</p>";
+            loppuaika = "<p>Loppuaika: " + data.loppuaika + "</p>";
+            osallistujat = osallistujat + "<ul>"
+            for(var i = 0; i < data.osallistujat.length; i++) {
+                osallistujat = osallistujat + "<li>" + data.osallistujat[i] + "</li>";
+                }
+            osallistujat = "Osallistujat: " + osallistujat + "</ul>"
+
+            document.getElementById("palaveri").innerHTML = tapahtuma + osallistujalkm + paikka + alkuaika + loppuaika + osallistujat;
+        }
+    })
+    .catch(function (error) {
+    document.getElementById("palaveri").innerHTML =
+    "<p>Tietoa ei pystytä hakemaan</p>";
+    })
+</script>
+</html>

@@ -1,0 +1,170 @@
+/*  poistetaan verkkosivun oletus margin arvo jotta sivu alkaa oikeasti reunoista asti. 
+    Asetetaan ei ihan puhtaan valkoinen taustaväri. 
+*/
+body{
+    margin: 0px;
+    background-color: rgb(250, 248, 245);
+}
+/*  asetetaan kaikki sivun elementit Gridiin yhdellä kolumnilla 
+    (käytännössä tässä voisi käyttää lähes mitä tahansa muuta myös (flex, block) mutta grid asettaa asiat helposti allekkain) 
+*/
+.kaikki{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+/*  fontti-asetuksia itse sisällön elementeille (ei sisällä navbaria) */
+.kaikki-wrap{
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+/*  navi luokan alla olevat elementit ovat nyt flexboxissa. 
+    justify-content: space-between asettaa sen sisällä olevat elementit erilleen niin, että niiden välillä on maksimi etäisyys jonka elementti sallii.
+    padding taas pituus muiden elementtien reunoista
+    fontti asetukset tänne myös, jotta saan asetettua omat tekstinpainot
+    */
+.navi{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+/*  navi-sivut alla oleva elementti on nyt flexboxissa. Jee. */
+.navi-sivut{
+    display:flex; 
+}
+/*  Asetetaan navibarin fonttiasetuksia 
+    Alunperin nämä tehtiin videossa tässä kontekstissa navi-sivut div kautta.
+    Ymmärrän kyllä, että ideana oli näyttää  mahdollisuus tuolle että voit ottaa nimetyn luokan
+    alla olevat kaikki elementit ja antaa niille tietyille elementeille asetuksia,
+    en vain näe siinä mitään järkeä tässä kontekstissa.
+*/
+.navi-links{
+    font-size: 0.8em;
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+/*  Asetetaan navigointi palkin korkeus, näkymätön alaviiva ja transition aika  */
+.navi-links{
+    height: 1.2em;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.5s;
+}
+/*  asetetaan navbar tekstin väri
+    poistetaan kaikki decoraatiot(linkkien alleviivaus)
+    asetetaan sama transition timer kuin itse linkkeihin
+    padding ylle ja alle jotta linkeihin on helpompi osua/alla oleva viiva on myös klikattavalla alueella */
+.navi-links a{
+    color: #8a8a8a;
+    text-decoration: none;
+    transition: color 0.5s;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+/*  Kun hiiri on linkkien päällä luo alle pixelin paksuinen border-viiva */
+.navi-links:hover{
+    border-bottom: 1px solid black;
+}
+/*  Kun hiiri on linkkien päällä muuta väri. */
+.navi-links a:hover{
+    color: black;
+}
+/*  Oikean puolen nimi */
+.navi-name{
+    color: #8a8a8a;
+    text-transform: uppercase;
+}
+/*  Portfolio */
+.portfolio-items{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+/*  Ylempi taso joka sisältää kuvat ja tekstit on relatiivisesti sijoitettu. Eipähän tarvitse itse kirjottaa */
+.portfolio-item{
+    position: relative;
+}
+/*  height 300px -> kuvan korkeus aina 300px
+    width 100% -> kuva täyttää aina alueen leveys-suunnassa
+    background size cover -> periaatteessa levittää kuvan täyttämään tilan
+    bg position center -> keskittää kuvan
+    bg repeat no repeat -> ei toista kuvaa 
+*/
+.portfolio-img-background{
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/*  Asetetaan kuvan sisällä näkyvän tekstin sijainti.
+    Absolute -> Pystyy olla päällekkäin muiden elementtien kanssa
+    top -> Asettaa sen alkamaan elementin yläosasta
+    display flex -> asetetaan flexbox sisällölle
+    flex direction column -> käsitellään kolumneina
+    justify-content center -> asetetaan alueen keskelle
+    align-items center -> asettaa flexboxin keskelle
+    height 100% -> käyttää koko korkeuden
+    text-align center -> teksti on keskitetty
+    padding -> kuinka paljon tilaa jätetään oikealle ja vasemmalle
+    Taitaa olla myös tämän takia, mutta jostakin syystä tuo justify-content ei toimi ihan niinkuin 
+    sen pitäisi jos venyttää sivua tarpeeksi leveeksi ja sisällä oleva sisältö pysyy 
+    vasemmassa reunassa jos teksti ei riitä "puskemaan" sitä pois sieltä (5120x1440p näyttö)
+*/
+.img-text-wrap{
+    position: absolute;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 100%;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+/*  Muutetaan logojen kuvakokoa puoleen maximi tilasta, asetetaan padding korkeus tekstistä */
+.img-logo-wrap img{
+    width: 50%;
+    margin-bottom: 12px;
+    height: auto;
+}
+/*  Muutetaan Portfolion teksti läpinäkyväksi normaalisti */
+.img-text-wrap .subtitle{
+    transition: 0.7s;
+    color: transparent;
+    font-weight: 600;
+}
+/*  Kun viedään hiiri .img-text-wrap omistavan alueen päälle, muutetaan .subtitle (tekstit) valkoiseksi */
+.img-text-wrap:hover .subtitle{
+    font-weight: 600;
+    color: rgb(220, 228, 235);
+}
+/*  Luodaan sekunnin pituinen muutos filtteri joka laskee kuvan valoisuuden 10% ja toinen joka nostaa sen 100%. 
+    Kutsutaan .html tiedoston kautta javascriptillä */
+.img-darken{
+    transition: 1s;
+    filter: brightness(10%);
+}
+.img-lighten{
+    transition: 1s;
+    filter: brightness(100%);
+}
+/*  toisen sivun asetuksia */
+/*  Luodaan kahdenn kolumnin gridi kuvaa ja tekstiä varten */
+.two-column-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+/*  Asetetaan kuva viemään koko leveys joka sillä on käytettävissä */
+.profile-img-wrap img{
+    width: 100%;
+}
+/*  Padding tekstille jotta se on vähän erillään kaikesta */
+.profile-text-wrap{
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+}

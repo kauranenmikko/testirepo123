@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<html lang="fi">
+<!-- Asetetaan perus asetuksia, käytetty charset, sivun otsikko, viittaus css tiedostoon, fontit -->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Oppimistehtävä2</title>
+	<link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="kaikki">
+            <div class="navi">
+                <div class="navi-sivut">
+                        <div class="navi-links">
+                            <a href="index.html">Koti</a>
+                        </div>
+                        <div class="navi-links">
+                            <a href="about.html">about</a>
+                        </div>
+                </div>
+                <div class="navi-name">
+                    <div>Mikko Kauranen</div>
+                </div>
+            </div>
+            <!-- Luodaan monta div:iä. Sehän tässä koko tehtävässä oli varmaankin se isoin oppi, 
+                divejä luodaan käytännössä joka ikiselle asialle mitä haluat tai joudut mukauttamaan
+                kaiken kattava div, navbar div, itse portfolioiden "framelle" div, portfoliolle itsessään div, 
+                taustakuvalle div, portfolion sisällölle div, sen sisällä olevalle tekstille ja iconille myös omat divit -->
+        <div class="kaikki-wrap">
+            <div class="portfolio-items">
+                <div class="portfolio-item">
+                    <div class="portfolio-img-background" style="background-image:url(images/portfolio1.jpg)"></div>
+                    <div class="img-text-wrap">
+                        <div class="img-logo-wrap">
+                            <img src="images/cat_logo.png">
+                        </div>
+                        <div class="subtitle">
+                            Opettelin C# ja Javaa ammattikoulussa. Omalla ajalla ei kauheasti ollut kiinnostusta. <br>
+                            Sitten lopetin koodaamisen moneksi vuodeksi ja unohdin lähes kaiken.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img-background" style="background-image:url(images/portfolio2.jpg)"></div>
+                    <div class="img-text-wrap">
+                        <div class="img-logo-wrap">
+                            <img src="images/coffee_logo.png">
+                        </div>
+                        <div class="subtitle">
+                            Sillä aikaa siirryin ja keskityin enemmän järjestelmiin ja erilaisten IT ongelmien ratkomiseen. <br>
+                            Se on omasta mielestä paljon mukavampaa.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img-background" style="background-image:url(images/portfolio3.jpg)"></div>
+                    <div class="img-text-wrap">
+                        <div class="img-logo-wrap">
+                            <img src="images/swirly_logo.png">
+                        </div>
+                        <div class="subtitle">
+                            Kävi kuitenkin niin, että kaikissa töissä mitä tein tarvittiin vähintään koodin lukemisen osaamista. Joten taidot pitää ainakin pitää sillä tasolla.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img-background" style="background-image:url(images/portfolio4.jpg)">
+                    </div>
+                    <div class="img-text-wrap">
+                        <div class="img-logo-wrap">
+                            <img src="images/questionmark_logo.png">
+                        </div>
+                        <div class="subtitle">
+                            Onneksi suurin osa objekti-pohjasista koodauskielistä toimii ylätasolla hyvin samalla logiikalla ja ovat erittäin laajassa käytössä.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img-background" style="background-image:url(images/portfolio5.jpg)">
+                    </div>
+                    <div class="img-text-wrap">
+                        <div class="img-logo-wrap">
+                            <img src="images/WA_logo.png">
+                        </div>
+                        <div class="subtitle">
+                            Tämän takia on pitänyt koittaa pitää omat taidot ainakin sillä tasolla, 
+                            että pystyy lukemaan koodia ja vähintään ymmärtämään mitä siinä yritettiin tehdä.
+                            Käytännössä LUAlla pelien ympärillä välillä.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img-background" style="background-image:url(images/portfolio6.jpg)">         
+                    </div>
+                    <div class="img-text-wrap">
+                        <div class="img-logo-wrap">
+                            <img src="images/mabycat_logo.png">
+                        </div>
+                        <div class="subtitle">
+                            Lopputulos on, että osaan koodata ja lukea koodia. Mutta koodaan vain aikalailla pakosta, enkä kauheasti pidä siitä.
+                            (Enkä tiedä kuinka "koodaamiseksi" bash scriptit edes luetaan joita teen eniten)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- javascriptiä, kaikkien rakastamaa.
+    const määrittää uuden konstantin portfolioItems on vain sen nimi ja voisi olla oikeasti mitä tahansa.
+    portfolioItems.forEach(portfolioItem => lähtee iteroimaan jokaisen tapauksen yli
+    portfolioItem.addEventListener('mouseover', () lisää eventin "kuuntelijan" joka tekee jotakin kun tietty tapahtuma no, tapahtuu (tässä tapauksessa hiiren objektin ylle vienti)
+    portfolioItem.childNodes[1].classList.add('img-darken'); käyttää css tiedostossa määrättyä img-darken arvoa ja lisää sitä (brigthness )
+    portfolioItem.childNodes[1].classList.remove('img-darken'); päinvastaisesti poistaa pimennyksen heti kuvalta
+    (sama idea img-lighten, tietenkin nimen mukaisesti funktio lisää valoa)
+    Ärsytti kuinka kuvien valoisuus nousi samantien 100% kun hiiri liikutettiin pois päältä, niin lisäsin toisen osion hidastamaan sitä -->
+<script>
+    const portfolioItems = document.querySelectorAll('.portfolio-item')
+    portfolioItems.forEach(portfolioItem => {
+        portfolioItem.addEventListener('mouseover', () => {
+            portfolioItem.childNodes[1].classList.add('img-darken');
+            portfolioItem.childNodes[1].classList.remove('img-lighten');
+        })
+        portfolioItem.addEventListener('mouseout', () => {
+            portfolioItem.childNodes[1].classList.add('img-lighten');
+            portfolioItem.childNodes[1].classList.remove('img-darken');
+        })
+    })
+</script>
+</html>

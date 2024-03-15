@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<html lang="fi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+	<title>Palaverin haku</title>
+</head>
+<body>
+    <body>
+        <div class="topnav" id="myTopnav">
+            <a href="etusivu.html" class="active">Etusivu</a>
+            <a href="palaveri.html">Palaveri</a>
+            <a href="digicafe.html">Digi Cafe</a>
+            <a href="tyot.html">Työpaikat</a>
+      </div>
+     <div id="palaveri"></div>
+</body>
+<script>
+    fetch('https://run.mocky.io/v3/1085afac-e0f3-40c1-af9e-9ff8f51ccf1a') 
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (responseJson) {
+        haku(responseJson);
+        function haku(data){
+            var nimi = "";
+            var yhteystiedot = "";
+            var tuotteet = ""; 
+            var henkilokunta = "";  
+            // otsikkotiedon hakeminen ja sijoittaminen h1-elementtiin
+            nimi = "<h1>" + data.yritys + "</h1>";
+            yhteystiedot =  "<p> Yhteystiedot: " + data.yhteystiedot.osoite + "<br>" + data.yhteystiedot.puhelin + "<br>" + data.yhteystiedot.email + "</p>";
+
+            tuotteet = tuotteet + "<ul>"
+            for(var i = 0; i < data.tuotteet.length; i++) {
+                tuotteet = tuotteet + "<li>" + data.tuotteet[i] + "</li>";
+            }
+            tuotteet = "Tuotteet: " + tuotteet + "</ul>"
+
+            henkilokunta = henkilokunta + "<ul>"
+            for(var i = 0; i < data.tuotteet.length; i++) {
+                henkilokunta = henkilokunta + "<li>" + data.henkilokunta[i].nimi + " " + data.henkilokunta[i].titteli + "</li>";
+            }
+            henkilokunta = "Henkilökunta: " + henkilokunta + "</ul>"
+
+            document.getElementById("palaveri").innerHTML = nimi + yhteystiedot + tuotteet + henkilokunta ;
+        }
+    })
+    .catch(function (error) {
+    document.getElementById("palaveri").innerHTML =
+    "<p>Tietoa ei pystytä hakemaan</p>";
+    })
+</script>
+</html>

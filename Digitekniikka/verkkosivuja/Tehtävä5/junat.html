@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<html lang="fi"></html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+	<title>Junien haku</title>
+</head>
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="saa.html" class="active">Sää</a>
+        <a href="junat.html">Junat</a>
+    </div>
+    <div id="vastaus"></div>
+    <script>
+        fetch('https://rata.digitraffic.fi/api/v1/live-trains/station/HKI?departing_trains=25&include_nonstopping=false')
+        // Muunnetaan vastaus JSON muotoon
+        .then(function (response) {
+            return response.json();
+        })
+        // Käsitellään muunnettu (eli JSON muotoinen) vastaus
+        .then(function (responseJson) {
+        // kutsutaan saa-funktiota
+            juna(responseJson);
+        })
+        .catch(function (error) {
+            document.getElementById("vastaus").innerHTML =
+        "<p>Tietoa ei pystytä hakemaan</p>";
+        })
+        function juna(data){
+            var teksti = "";
+           // var vika = data[i].timeTableRows[data[i].timeTableRows.length-1].stationShortCode; 
+            teksti = teksti + "<ul>"
+            for(var i = 0; i < data.length; i++) {   
+                for (var j = 0; j < data[i].timeTableRows.length; j++){    
+                    if (data[i].timeTableRows[j].stationShortCode=="TPE" && data[i].timeTableRows[j].type=="ARRIVAL"){
+                        teksti = teksti + "<li> Junan tyyppi: " +  data[i].trainType + "<br>Junan numero: " +  data[i].trainNumber + "<br>Lähtee: " + data[i].timeTableRows[0].scheduledTime + "<br>Asemalta: " + data[i].timeTableRows[0].stationShortCode + " Viimeinen asema: " + data[i].timeTableRows[data[i].timeTableRows.length-1].stationShortCode + "</li>";
+                    }
+                }
+            }
+            teksti = "<h1>Junat jotka kulkevat Helsingin ja Tampereen välillä</h1>" + teksti + "</ul>";
+            document.getElementById("vastaus").innerHTML = teksti;
+        }
+    </script>
+</body>
+</html>

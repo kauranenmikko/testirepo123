@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<html lang="fi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+	<title>Vantaa työhaku</title>
+</head>
+<body>
+    <body>
+        <div class="topnav" id="myTopnav">
+            <a href="etusivu.html" class="active">Etusivu</a>
+            <a href="palaveri.html">Palaveri</a>
+            <a href="digicafe.html">Digi Cafe</a>
+            <a href="tyot.html">Työpaikat</a>
+      </div>
+    <div id="vantaa"></div>
+</body>
+<script>
+    fetch('http://gis.vantaa.fi/rest/tyopaikat/v1/Varhaiskasvatus') 
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (responseJson) {
+    haku(responseJson);
+    function haku(data){
+        var tiedot = "";
+        // otsikkotiedon hakeminen ja sijoittaminen h1-elementtiin
+        tiedot = tiedot + "<ul>"
+            for(var i = 0; i < data.length; i++) {
+                tiedot = tiedot + "<li>" + "Osoite: " + data[i].osoite + "<br>Työtehtävä: " + data[i].tyotehtava + "<br> Linkki: " + '<a href="' + data[i].linkki + '">' + data[i].linkki + "</a>" + "</li>";
+                }
+                tiedot =  tiedot + "</ul>"
+
+                document.getElementById("vantaa").innerHTML = tiedot;
+    }
+})
+    .catch(function (error) {
+    document.getElementById("vantaa").innerHTML =
+    "<p>Tietoa ei pystytä hakemaan</p>";
+    })
+</script>
+</html>

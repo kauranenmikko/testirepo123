@@ -1,0 +1,63 @@
+#navi ul{
+    list-style-type: none;
+    width: 100%;
+    line-height: 20px;
+}
+#navi li{
+    display: inline;
+}
+#navi a{
+    padding: 6px 20px;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    background-color: coral;
+    color: #fff;
+    width: 86px;
+}
+#navi a:hover{
+    background-color: crimson;
+}
+header h1{
+    text-align: center;
+}
+body{
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+body h1{
+    color: #2e682e;
+}
+body h2{
+    color: #53c653;
+}
+#sivu1{
+    visibility: visible;
+    height: auto;
+}
+#sivu2{
+    visibility: hidden;
+    height: 0;
+}
+.kontti{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3em;
+    width: 40em;
+    min-height: 10em;
+    background-color: aqua;
+    padding: 1em;
+}
+.kontti img{
+    width: 98%;
+    height: auto;
+    vertical-align: text-top;
+    max-width: 400px;
+    max-height: 400px;
+}
+#materiaali{
+text-align: left;
+
+}
+main p {
+    color: black;
+}
